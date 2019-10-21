@@ -10,14 +10,14 @@ import {Link} from "react-router-dom";
 // color: white;
 // `;
 
-const LogInButton = () => {     
+const SignUpButton = () => {     
    
     return ( 
         <div class="buttonContainer">
-            <Link to="/">
-                <button>Log In</button>
+            <Link to="/signup">
+                <button>Sign Up</button>
             </Link>
         </div>
     )
 }
-export default LogInButton
+export default SignUpButton

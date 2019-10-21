@@ -1,8 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import LogInButton from './LogInButton';
-
+import SignUpButton from './SignUpButton';
 
 
 
@@ -21,7 +20,7 @@ export default function WelcomePage() {
         </div>
         <div className="buttonContainer">
             <LogInButton />    
-            {/* <SignUpButton /> */}
+            <SignUpButton />
         </div>
         <div className="animalsImageContainer">
         <img
