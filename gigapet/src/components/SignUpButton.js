@@ -13,7 +13,7 @@ import {Link} from "react-router-dom";
 const SignUpButton = () => {     
    
     return ( 
-        <div class="buttonContainer">
+        <div className="buttonContainer">
             <Link to="/signup">
                 <button>Sign Up</button>
             </Link>
