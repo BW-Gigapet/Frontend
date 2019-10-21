@@ -19,8 +19,9 @@ export default function WelcomePage() {
           />
         </div>
         <div className="buttonContainer">
-            <LogInButton />    
             <SignUpButton />
+            <LogInButton />    
+            
         </div>
         <div className="animalsImageContainer">
         <img
