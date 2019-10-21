@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { SelectCategory, CategoryBanner, SummaryData } from './index'
+import { SelectCategory, CategoryBanner, EditingTable } from './index'
 
-export class Summary extends React.Component {
+export class Editing extends React.Component {
     constructor(props) {
         super(props)
         this.state = {}
@@ -19,7 +19,10 @@ export class Summary extends React.Component {
     render() {
         return (
         <div>
-            <h3>Summary</h3>
+            <div>
+                <h3>Editing</h3>
+                <p>Back to Summary</p> {/* link or change parent state ? */}
+            </div>
             <div>
                 {/* select category */}
                 <div>
@@ -32,4 +35,4 @@ export class Summary extends React.Component {
     }
 }
 
-export default Summary
+export default Editing
