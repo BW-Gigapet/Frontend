@@ -13,4 +13,4 @@ export function PrivateRoute({component: Component, render: Render, ...rest}) {
     )
 }
 
-export default PrivateRoutew
+export default PrivateRoute
