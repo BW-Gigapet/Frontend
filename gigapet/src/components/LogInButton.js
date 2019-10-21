@@ -14,7 +14,7 @@ const LogInButton = () => {
    
     return ( 
         <div class="buttonContainer">
-            <Link to="/">
+            <Link to="/login">
                 <button>Log In</button>
             </Link>
         </div>

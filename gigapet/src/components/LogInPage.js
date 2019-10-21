@@ -3,7 +3,7 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 
-const SignUpForm = ({ errors, touched, status }) => {
+const LogInForm = ({ errors, touched, status }) => {
 
   //======SET STATE OF DATA TO USE IN POSTING/GETTING (see POST code below)===========
   const [users, setUsers] = useState([]);
@@ -16,20 +16,9 @@ const SignUpForm = ({ errors, touched, status }) => {
   //======END SET STATE OF DATA TO USE IN POSTING/GETTING===========
 
   return (
-    <div className="singUpForm">
+    <div className="logInForm">
       <Form >
-        <h2>Sign Up</h2>
-        <div className="usernameContainer">
-        {touched.username && errors.username && <p className="warning">{errors.username}</p>}
-            <div className="username">
-              <label htmlFor="username">
-                <p>User Name</p>
-              </label>
-              <div className="usernameInputContainer">
-                <Field type="text" name="username" placeholder="User Name" size="45"/>
-              </div>
-            </div>
-        </div>
+        <h2>Log In</h2>
         <div className="emailContainer">
         {touched.email && errors.email && <p className="warning">{errors.email}</p>}
             <div className="email">
@@ -54,7 +43,7 @@ const SignUpForm = ({ errors, touched, status }) => {
         </div>
         <button type="submit">Continue</button>
       </Form>
-      <div className="animalsImageContainer">
+        <div className="animalsImageContainer">
             <img
             className="animals"
             src={ require("../assets/Gigapets900px.png")}
@@ -65,11 +54,10 @@ const SignUpForm = ({ errors, touched, status }) => {
   );
 }
 
-const FormikSignUpForm = withFormik({
+const FormikLogInForm = withFormik({
 
-mapPropsToValues({ username, email, password }) {
+mapPropsToValues({ email, password }) {
     return {
-        username: username || "",
         email: email || "",
         password: password || "",
     };
@@ -77,14 +65,10 @@ mapPropsToValues({ username, email, password }) {
 
 //======VALIDATION SCHEMA==========
 validationSchema: Yup.object().shape({
-    username: Yup.string()
-        .min(2, "You must enter 2 or more letters!")
-        .required("Name is required!"),
     email: Yup.string()
         .email("Email not valid.")
         .required("Email is required!"),
     password: Yup.string()
-        .min(6, "Password must be 6 characters or longer!")
         .required("Password is required!"),        
 }),
 //======END VALIDATION SCHEMA==========
@@ -108,6 +92,6 @@ handleSubmit(values, {resetForm} ) {
   resetForm();
 }
 
-})(SignUpForm);
+})(LogInForm);
 
-export default FormikSignUpForm;
+export default FormikLogInForm;
