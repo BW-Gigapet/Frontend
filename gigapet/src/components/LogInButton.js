@@ -13,7 +13,7 @@ import {Link} from "react-router-dom";
 const LogInButton = () => {     
    
     return ( 
-        <div class="buttonContainer">
+        <div className="buttonContainer">
             <Link to="/login">
                 <button>Log In</button>
             </Link>
