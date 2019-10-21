@@ -26,7 +26,7 @@ export default function WelcomePage() {
         <div className="animalsImageContainer">
         <img
             className="animals"
-            src={ require("../assets/QR Bunny.png")}
+            src={ require("../assets/Gigapets900px.png")}
             alt="animals"
           />
         </div>  
