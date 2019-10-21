@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react'
 
 export function EditForm(props) {
+    const [input, setInput] = useState(()=>{
+        return props.edit || {
+            category: '',
+            portion: '',
+        }
+    })
+
     return (
         <form>
             <div>
                 <h4>Food Group</h4>
                 <div>
-                    {/* map <CategoryButton /> */}
+                    {/* map(category => <CategoryRadioButton ...{input, setInput, category} />) */}
                 </div>
             </div>
             <div>

@@ -80,6 +80,7 @@ handleSubmit(values, {setStatus} ) {
   axios 
     .post("https://bw-gigapet-ft.herokuapp.com/api/login", values)
     .then(response => {
+      localStorage.setItem('token', response.data.token)
       setStatus(response.data);
       console.log('this is the response from axios post', response)
     })
