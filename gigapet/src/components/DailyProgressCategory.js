@@ -11,9 +11,9 @@ const DailyProgressCategory = (props) => {
 
     return (
         <div>
-            <p>{props.category}</p>
+            <p>{/*props.category*/}</p>
             <span>Progress Bar</span>
-            <p>{categoryProgress}</p>
+            <p>{/*categoryProgress*/}</p>
 
             {/* reduce the daily entries  */}
         </div>

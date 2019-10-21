@@ -2,6 +2,9 @@ import React from 'react';
 
 
 const AddFoodEntry = () => {
+
+    
+
     return (
         <div>
             <div className='add-food-btn'>
