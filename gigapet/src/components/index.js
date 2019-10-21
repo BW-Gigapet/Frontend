@@ -1,4 +1,4 @@
-export * from './AddFoodEntry'
+export * from './AddFoodLaunch'
 export * from './CategoryBanner'
 export * from './DailyProgressCategory'
 export * from './DailyProgressSummary'

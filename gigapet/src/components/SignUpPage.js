@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
+import axiosWithAuth from '../utils/axiosWithAuth';
+import axios from 'axios';
 
 const UserForm = ({ errors, touched, values, status }) => {
 
@@ -84,14 +85,16 @@ validationSchema: Yup.object().shape({
 
 //======POST REQUEST (see how status is set above)==========
 
-handleSubmit(values, {setStatus} ) {
+handleSubmit(values, {props, setStatus} ) {
   console.log('values', values);
-  axios .post("https://reqres.in/api/users", values)
-        .then(response => {
-          setStatus(response.data);
-          console.log(response)
-        })
-        .catch(error => console.log(error.response))
+  axios
+    .post("https://bw-gigapet-ft.herokuapp.com/api/register", values)
+    .then(response => {
+      setStatus(response.data);
+      props.history.push('/login')
+      console.log(response)
+    })
+    .catch(error => console.log(error.response))
 },
 
 //======END POST REQUEST==========
