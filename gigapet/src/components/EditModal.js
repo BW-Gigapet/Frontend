@@ -1,4 +1,5 @@
 import React from 'react'
+import EditForm from './EditForm'
 
 export function EditModal(props) {
     return (
@@ -6,7 +7,7 @@ export function EditModal(props) {
             <h2>Editing Food Entry</h2>
             <p>Please select the appropriate portion size you wish to change to.</p>
             <div>Close Button</div>
-            {/* <EditForm /> */}
+            <EditForm />
         </div>
     )
 }
