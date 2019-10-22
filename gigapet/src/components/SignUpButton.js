@@ -1,23 +1,21 @@
 import React from 'react';
 import styled from "styled-components";
 import {Link} from "react-router-dom";
+import { LinkButtonDefault } from "./FormStyles"
 
-// const LinkButton = styled(Link)`
-// width: 195px;
-// height: 48px;
-// background: #247CAD;
-// border-radius: 6px;
-// color: white;
-// `;
+
+const ButtonContainer = styled.div`
+ margin-right: 29px;
+`;
 
 const SignUpButton = () => {     
    
     return ( 
-        <div className="buttonContainer">
+        <ButtonContainer className="buttonContainer">
             <Link to="/signup">
-                <button>Sign Up</button>
+                <LinkButtonDefault>Sign Up</LinkButtonDefault>
             </Link>
-        </div>
+        </ButtonContainer>
     )
 }
 export default SignUpButton
