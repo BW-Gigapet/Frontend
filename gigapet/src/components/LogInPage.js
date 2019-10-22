@@ -3,7 +3,7 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 
-const LogInForm = ({ errors, touched, status }) => {
+const LogInForm = ({ errors, touched, status, values }) => {
 
   //======SET STATE OF DATA TO USE IN POSTING/GETTING (see POST code below)===========
   const [users, setUsers] = useState([]);
@@ -14,7 +14,7 @@ const LogInForm = ({ errors, touched, status }) => {
     }
   }, [status])
   //======END SET STATE OF DATA TO USE IN POSTING/GETTING===========
-
+  
   return (
     <div className="logInForm">
       <Form >
@@ -77,20 +77,15 @@ validationSchema: Yup.object().shape({
 
 handleSubmit(values, {setStatus} ) {
   console.log('values', values);
-  axios .post("https://reqres.in/api/users", values)
+  axios .post("https://bw-gigapet-ft.herokuapp.com/api/login", values)
         .then(response => {
-          setStatus(response.data);
+          setStatus(response)
           console.log(response)
         })
         .catch(error => console.log(error.response))
 },
 
 //======END POST REQUEST==========
-
-handleSubmit(values, {resetForm} ) {
-  console.log('values', values);
-  resetForm();
-}
 
 })(LogInForm);
 

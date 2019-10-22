@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-import axiosWithAuth from '../utils/axiosWithAuth';
 import axios from 'axios';
 
 const SignUpForm = ({ errors, touched, status }) => {
@@ -17,7 +16,7 @@ const SignUpForm = ({ errors, touched, status }) => {
   //======END SET STATE OF DATA TO USE IN POSTING/GETTING===========
 
   return (
-    <div className="singUpForm">
+    <div className="signUpForm">
       <Form >
         <h2>Sign Up</h2>
         <div className="usernameContainer">
@@ -68,6 +67,7 @@ const SignUpForm = ({ errors, touched, status }) => {
 
 const FormikSignUpForm = withFormik({
 
+//=============Initializing Form's Empty State==================
 mapPropsToValues({ username, email, password }) {
     return {
         username: username || "",
@@ -75,6 +75,7 @@ mapPropsToValues({ username, email, password }) {
         password: password || "",
     };
 },
+//=============End Initializing Form's Empty State==================
 
 //======VALIDATION SCHEMA==========
 validationSchema: Yup.object().shape({
@@ -98,18 +99,12 @@ handleSubmit(values, {props, setStatus} ) {
     .post("https://bw-gigapet-ft.herokuapp.com/api/register", values)
     .then(response => {
       setStatus(response.data);
-      props.history.push('/login')
       console.log(response)
     })
     .catch(error => console.log(error.response))
 },
 
 //======END POST REQUEST==========
-
-handleSubmit(values, {resetForm} ) {
-  console.log('values', values);
-  resetForm();
-}
 
 })(SignUpForm);
 
