@@ -8,7 +8,8 @@ import AddFoodLaunch from './components/AddFoodLaunch';
 import Overlay from './components/Overlay';
 import EditModal from './components/EditModal';
 // import DailyProgressSummary from './components/DailyProgressSummary';
-// import AddFoodEntry from './components/AddFoodLaunch';
+// import AddFoodLaunch from './components/AddFoodLaunch';
+
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
       <Route exact path="/signup" component={SignUpPage} />
       <Route exact path="/login" component={LogInPage} />
 
-      <AddFoodLaunch />
+      {/* <AddFoodLaunch /> */}
 
       <Route exact path='/test/EditModal' render={props => <Overlay {...props}><EditModal {...props} /></Overlay>} />
     </div>

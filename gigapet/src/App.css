@@ -2,21 +2,18 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.progress-bar {
+  position: relative;
+  height: 20px;
+  width: 350px;
+  border-radius: 7px;
+  border: 1px solid #EBF9EF;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.filler {
+  background-color: #82D99C;
+  height: 100%;
+  border-radius: inherit;
+  /* transition: width .2s ease-in; */
 }
 
-.App-link {
-  color: #09d3ac;
-}
