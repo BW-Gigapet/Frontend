@@ -5,6 +5,7 @@ import {
 } from '../actions';
 
 const initialState = {
+    // parent: {},
     mealData: [],
     categoryData: 
         {
