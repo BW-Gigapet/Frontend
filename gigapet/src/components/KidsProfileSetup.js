@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom'
 
 import DefaultButton from './DefaultButton';
 
@@ -20,25 +21,38 @@ margin-bottom: 0;
 
 const ButtonsContainer = styled.div`
 display: flex;
-justify-content: center;
+flex-direction: row;
 `;
 
 const AnimalsImageContainer = styled.div`
 margin: 51px;
 `;
 
-export default function KidsProfileSetup() {
+export default function KidsProfileSetup(props) {
+
+    // create proper functionality for back button
+
+    // const routeToHome = event => {
+    //     props.history.push('/signup');
+    //   };
 
     return (
 
       <PageContainer className="kidsProfileSetup">
         <div className="contentContainer">
-           <SetUpQuestion>Do you want to begin setting up your kids profile?</SetUpQuestion>
+            <div className="arrowButtonContainer">
+                <Link to="/signup">{/*is Link needed?*/}
+                    <button className="arrowBackButton">
+                        <img  /*onClick={() => routeToHome()*/ className="ButtonImage" src={ require('../assets/BackArrow.png')} alt="arrowIcon" />
+                    </button>
+                </Link>
+            </div>
+            <SetUpQuestion>Do you want to begin setting up your kids profile?</SetUpQuestion>
             <p>You can always add them later but we recommend getting started!</p>
-        <ButtonsContainer className="buttonsContainer">
-            <DefaultButton label={"Yes"} link={"/"} />
-            <DefaultButton label ={"Skip"} link={"/"} />
-        </ButtonsContainer>
+            <div className="buttonsContainer">
+                <DefaultButton label={"Yes"} link={"/addkidpage"} />{/* add correct links, history needed? */}
+                <DefaultButton label ={"Skip"} link={"/"} />{/* add correct links, history needed? */}
+            </div>
         </div>
         <AnimalsImageContainer className="animalsImageContainer">
         <img
