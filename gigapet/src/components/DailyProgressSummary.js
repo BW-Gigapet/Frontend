@@ -4,8 +4,10 @@ import DailyProgressCategory from './DailyProgressCategory';
 const categories = [
     {
         name: 'Vegetable',
+        id: 'veg',
         progressBar: '#EBF9EF',
         fillerColor: '#82D99C'
+
     },
     {
         name: 'Fruit',
@@ -23,7 +25,8 @@ const categories = [
         fillerColor: '#5BAEDC'
     },
     {
-        name: 'Fats and Oils',
+        name: 'Fats & Oils',
+        id: 'fatsoils',
         progressBar: '#EFEAFA',
         fillerColor: '#9678DE'
     },

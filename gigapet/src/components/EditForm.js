@@ -14,7 +14,12 @@ export function EditForm(props) {
 
     function submitHandler(e) {
         e.preventDefault()
-        // axios put
+        if (props.portion) {
+            // axios put
+        }
+        else {
+            // axios post
+        }
     }
 
     return (

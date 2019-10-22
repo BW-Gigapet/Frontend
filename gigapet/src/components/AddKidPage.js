@@ -87,7 +87,7 @@ const FormikSignUpForm = withFormik({
         handleSubmit(values, {props, setStatus} ) {
           console.log('values', values);
           axios
-            .post(`https://bw-gigapet-ft.herokuapp.com/api/users/${id}/children`, values)
+            .post(`https://bw-gigapet-ft.herokuapp.com/api/users/{id}/children`, values) // add back $ before {id}
             //add correct API & anything else needed for functionality
             .then(response => {
               setStatus(response.data);
