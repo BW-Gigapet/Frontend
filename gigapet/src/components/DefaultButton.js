@@ -8,14 +8,14 @@ const ButtonContainer = styled.div`
  margin-right: 29px;
 `;
 
-const SignUpButton = () => {     
-   
+const DefaultButton = (props) => {     
+   console.log(props)
     return ( 
         <ButtonContainer className="buttonContainer">
-            <Link to="/signup">
-                <LinkButtonDefault>Sign Up</LinkButtonDefault>
+            <Link to={props.link}>
+                <LinkButtonDefault>{props.label}</LinkButtonDefault>
             </Link>
         </ButtonContainer>
     )
 }
-export default SignUpButton
+export default DefaultButton
