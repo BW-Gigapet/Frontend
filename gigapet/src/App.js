@@ -9,6 +9,7 @@ import LogInPage from './components/LogInPage';
 // import AddFoodLaunch from './components/AddFoodLaunch';
 import Overlay from './components/Overlay';
 import EditModal from './components/EditModal';
+import Avatar from './components/Avatar';
 // import DailyProgressSummary from './components/DailyProgressSummary';
 // import AddFoodLaunch from './components/AddFoodLaunch';
 
@@ -25,6 +26,7 @@ function App() {
       {/* <AddFoodLaunch /> */}
 
       <Route exact path='/test/EditModal' render={props => <Overlay {...props}><EditModal {...props} /></Overlay>} />
+      <Route exact path='/test/Avatar' component={Avatar} />
       <Footer />
     </div>
   );

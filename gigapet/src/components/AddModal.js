@@ -1,11 +1,11 @@
 import React from 'react'
 import EditForm from './EditForm'
 
-export function EditModal(props) {
+export function AddModal(props) {
     return (
         <div>
-            <h2>Editing Food Entry</h2>
-            <p>Please select the appropriate portion size you wish to change to.</p>
+            <h2>Adding New Food Entry</h2>
+            <p>Please select the appropriate food group and portion size.</p>
             <div>Close Button</div>
             <EditForm {...props} />
         </div>
