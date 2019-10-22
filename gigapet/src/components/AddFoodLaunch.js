@@ -22,9 +22,9 @@ const AddFoodLaunch = () => {
             </div>
             <Icons className='add-food-icons'>
                 <IconContainer>
-                    <Buttons>
+                    <VegButton>
                         <VegImage src={ vegImage } alt='vegetable icon' />
-                    </Buttons>
+                    </VegButton>
                     <p>Vegetable</p>
                 </IconContainer>
                 <IconContainer>
@@ -98,9 +98,16 @@ const Buttons = styled.button`
     background-color: #EBF9EF;
 `;
 
+const VegButton = styled.button`
+    width: 70px;
+    height: 70px;
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    background-color: #EBF9EF;
+`;
+
 const VegImage = styled.img`
     width: 50px;
     height: 50px;
-    // padding: 3%;
-    // background-color: #EBF9EF;
 `;

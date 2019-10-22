@@ -1,9 +1,7 @@
 import React from 'react';
-
-import LogInButton from './LogInButton';
-import SignUpButton from './SignUpButton';
 import styled from 'styled-components';
 
+import DefaultButton from './DefaultButton';
 
 const WelcomePageContainer = styled.section`
   background: #f6f6f6;
@@ -46,8 +44,8 @@ export default function WelcomePage() {
           />
         </BunnyImageContainer>
         <ButtonsContainer className="buttonsContainer">
-            <SignUpButton />
-            <LogInButton />     
+            <DefaultButton link={"/signup"} label={"Sign Up"} />
+            <DefaultButton link={"/login"} label={"Log In"} />   
         </ButtonsContainer>
         <AnimalsImageContainer className="animalsImageContainer">
         <img
