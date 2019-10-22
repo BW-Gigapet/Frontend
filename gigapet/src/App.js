@@ -23,7 +23,7 @@ function App() {
       <Route exact path="/" component={WelcomePage} />
       <Route exact path="/signup" component={SignUpPage} />
       <Route exact path="/login" component={LogInPage} />
-      <Route path={["/home", "/home/:popup"]} component={Dashboard} />
+      <Route exact path="/home" component={Dashboard} />
 
       {/* <AddFoodLaunch /> */}
 
