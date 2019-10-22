@@ -3,9 +3,10 @@ import DailyProgressSummary from './DailyProgressSummary'
 import AddFoodLaunch from './AddFoodLaunch'
 import Summary from './Summary'
 import Avatar from './Avatar'
+import { AddModal } from './AddModal'
 
 
-const Dashboard = () => {
+const Dashboard = props => {
     return (
         <div>
             <div>
