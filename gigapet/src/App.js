@@ -10,6 +10,7 @@ import LogInPage from './components/LogInPage';
 import Overlay from './components/Overlay';
 import EditModal from './components/EditModal';
 import Avatar from './components/Avatar';
+import Dashboard from './components/Dashboard';
 // import DailyProgressSummary from './components/DailyProgressSummary';
 // import AddFoodLaunch from './components/AddFoodLaunch';
 
@@ -27,6 +28,7 @@ function App() {
 
       <Route exact path='/test/EditModal' render={props => <Overlay {...props}><EditModal {...props} /></Overlay>} />
       <Route exact path='/test/Avatar' component={Avatar} />
+      <Route exact path='/test/Dashboard' component={Dashboard} />
       <Footer />
     </div>
   );
