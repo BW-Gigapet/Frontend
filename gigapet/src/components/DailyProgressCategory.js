@@ -12,6 +12,9 @@ const DailyProgressCategory = (props) => {
     useEffect(() => {
         {/*  make axios call for todays category progress (%) and add condition logic for color */}
         // setPercentage(33);
+
+        //Lookup on category dataObject?? -- avoid merging the list set up with state
+        //setPercentage(props.categoryData[props.category.id])
     })
 
 
