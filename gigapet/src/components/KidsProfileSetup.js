@@ -21,7 +21,7 @@ margin-bottom: 0;
 
 const ButtonsContainer = styled.div`
 display: flex;
-justify-content: center;
+flex-direction: row;
 `;
 
 const AnimalsImageContainer = styled.div`
@@ -49,10 +49,10 @@ export default function KidsProfileSetup(props) {
             </div>
             <SetUpQuestion>Do you want to begin setting up your kids profile?</SetUpQuestion>
             <p>You can always add them later but we recommend getting started!</p>
-            <ButtonsContainer className="buttonsContainer">
+            <div className="buttonsContainer">
                 <DefaultButton label={"Yes"} link={"/addkidpage"} />{/* add correct links, history needed? */}
                 <DefaultButton label ={"Skip"} link={"/"} />{/* add correct links, history needed? */}
-            </ButtonsContainer>
+            </div>
         </div>
         <AnimalsImageContainer className="animalsImageContainer">
         <img
