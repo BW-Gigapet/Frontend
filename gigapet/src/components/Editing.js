@@ -5,11 +5,16 @@ import { SelectCategory, CategoryBanner, EditingTable } from './index'
 export class Editing extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {}
+        this.state = {
+            category: 'Vegetables',
+            meals: [],
+        }
     }
 
     componentDidMount() {
-        //axios get data
+        //axios get data 
+        //`https://bw-gigapet-ft.herokuapp.com/api/child/:id/meals?foodType=${this.state.category}&&filter=today`
+        //this.setState({meals: resp.data.meals})
     }
 
     componentWillUnmount() {
@@ -28,6 +33,7 @@ export class Editing extends React.Component {
                 <div>
                     {/* selected category banner */}
                     {/* data display */}
+                    <EditingTable meals={this.state.meals} />
                 </div>
             </div>
         </div>
