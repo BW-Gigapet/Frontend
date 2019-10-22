@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer } from "./FormStyles";
 
 const LogInForm = ({ errors, touched, status, values }) => {
 
@@ -14,42 +15,44 @@ const LogInForm = ({ errors, touched, status, values }) => {
     }
   }, [status])
   //======END SET STATE OF DATA TO USE IN POSTING/GETTING===========
-  
+
   return (
     <div className="logInForm">
       <Form >
-        <h2>Log In</h2>
-        <div className="emailContainer">
+        <FormTitle>Log In</FormTitle>
+        <FieldContainer className="emailContainer">
         {touched.email && errors.email && <p className="warning">{errors.email}</p>}
             <div className="email">
-              <label htmlFor="email">
-                <p>Email</p>
-              </label>
+              <FieldLabel htmlFor="email">
+                <ActualLabel>Email</ActualLabel>
+              </FieldLabel>
               <div className="emailInputContainer">
-                <Field type="email" name="email" placeholder="Email" size="45"/>
+                <InputField type="email" name="email" placeholder="Email" size="45"/>
               </div>
             </div>
-        </div>
-        <div className="passwordContainer">
+        </FieldContainer>
+        <FieldContainer className="passwordContainer">
         {touched.password && errors.password &&<p className="warning">{errors.password}</p>}
             <div className="password">
-              <label htmlFor="password">
-                <p>Password</p>
-              </label>
+              <FieldLabel htmlFor="password">
+                <ActualLabel>Password</ActualLabel>
+              </FieldLabel>
               <div className="passwordInputContainer">
-                <Field type="password" name="password" placeholder="Password" size="45"/>
+                <InputField type="password" name="password" placeholder="Password" size="45"/>
               </div>
             </div>
-        </div>
-        <button type="submit">Continue</button>
+        </FieldContainer>
+        <FormButtonContainer className="formButtonContainer">
+            <LinkButtonDefault type="submit">Continue</LinkButtonDefault>
+        </FormButtonContainer>
       </Form>
-        <div className="animalsImageContainer">
+        <AnimalsImageContainer className="animalsImageContainer">
             <img
             className="animals"
-            src={ require("../assets/Gigapets900px.png")}
+            src={ require("../assets/Gigapets847by377px.png")}
             alt="animals"
             />
-        </div>       
+        </AnimalsImageContainer>       
     </div>
   );
 }

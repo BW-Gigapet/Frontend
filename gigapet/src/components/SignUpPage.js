@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from 'axios';
+import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer } from "./FormStyles";
 
 const SignUpForm = ({ errors, touched, status }) => {
 
@@ -18,49 +19,51 @@ const SignUpForm = ({ errors, touched, status }) => {
   return (
     <div className="signUpForm">
       <Form >
-        <h2>Sign Up</h2>
-        <div className="usernameContainer">
+        <FormTitle>Sign Up</FormTitle>
+        <FieldContainer className="usernameContainer">
         {touched.username && errors.username && <p className="warning">{errors.username}</p>}
             <div className="username">
-              <label htmlFor="username">
-                <p>User Name</p>
-              </label>
+              <FieldLabel htmlFor="username">
+                <ActualLabel>User Name</ActualLabel>
+              </FieldLabel>
               <div className="usernameInputContainer">
-                <Field type="text" name="username" placeholder="User Name" size="45"/>
+                <InputField type="text" name="username" placeholder="User Name" size="45"/>
               </div>
             </div>
-        </div>
-        <div className="emailContainer">
+        </FieldContainer>
+        <FieldContainer className="emailContainer">
         {touched.email && errors.email && <p className="warning">{errors.email}</p>}
             <div className="email">
-              <label htmlFor="email">
-                <p>Email</p>
-              </label>
+              <FieldLabel htmlFor="email">
+                <ActualLabel>Email</ActualLabel>
+              </FieldLabel>
               <div className="emailInputContainer">
-                <Field type="email" name="email" placeholder="Email" size="45"/>
+                <InputField type="email" name="email" placeholder="Email" size="45"/>
               </div>
             </div>
-        </div>
-        <div className="passwordContainer">
+        </FieldContainer>
+        <FieldContainer className="passwordContainer">
         {touched.password && errors.password &&<p className="warning">{errors.password}</p>}
             <div className="password">
-              <label htmlFor="password">
-                <p>Password</p>
-              </label>
+              <FieldLabel htmlFor="password">
+                <ActualLabel>Password</ActualLabel>
+              </FieldLabel>
               <div className="passwordInputContainer">
-                <Field type="password" name="password" placeholder="Password" size="45"/>
+                <InputField type="password" name="password" placeholder="Password" size="45"/>
               </div>
             </div>
-        </div>
-        <button type="submit">Continue</button>
+        </FieldContainer>
+        <FormButtonContainer className="formButtonContainer">
+            <LinkButtonDefault type="submit">Continue</LinkButtonDefault>
+        </FormButtonContainer>
       </Form>
-      <div className="animalsImageContainer">
+      <AnimalsImageContainer className="animalsImageContainer">
             <img
             className="animals"
-            src={ require("../assets/Gigapets900px.png")}
+            src={ require("../assets/Gigapets847by377px.png")}
             alt="animals"
             />
-        </div>       
+        </AnimalsImageContainer>       
     </div>
   );
 }
