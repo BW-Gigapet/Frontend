@@ -5,12 +5,23 @@ import { SelectCategory, CategoryBanner, EditingTable } from './index'
 export class Editing extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {}
+        this.state = {
+            meals: [],
+            error: '',
+        }
+        
     }
 
     componentDidMount() {
-        //axios get data
-    }
+        axios.get('https://bw-gigapet-ft.herokuapp.com/api/meals/' /*get id from state*/
+              .then(res => { 
+                  console.log(res.data.meals);
+                  this.setState({meals: res.data.meals})
+              })
+              .catch((error) => {
+                  console.log(error)
+              })
+        )}
 
     componentWillUnmount() {
         //cleanup

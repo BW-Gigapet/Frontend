@@ -12,8 +12,8 @@ export function EditingEntry(props) {
 
     return (
         <tr>
-            <td>{/* time */}</td>
-            <td>{/* size */}</td>
+            <td>{props.meal.time}</td>
+            <td>{props.meal.portionSize}</td>
             <td>Change</td>
             <td>Delete</td>
         </tr>
