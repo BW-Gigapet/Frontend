@@ -25,8 +25,9 @@ function App() {
       <Route exact path="/" component={WelcomePage} />
       <Route exact path="/signup" component={SignUpPage} />
       <Route exact path="/login" component={LogInPage} />
+      <Route exact path="/home" component={Dashboard} />
       <Route exact path ="/kidsprofilesetup" component={KidsProfileSetup} />
-      {/* <Route exact path ="/addkidpage" component={AddKidPage} /> */}
+      <Route exact path ="/addkidpage" component={AddKidPage} />
 
       {/* <AddFoodLaunch /> */}
 

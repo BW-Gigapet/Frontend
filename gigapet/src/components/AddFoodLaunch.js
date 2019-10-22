@@ -6,9 +6,12 @@ import grainImage from '../assets/GrainIcon.png';
 import proteinImage from '../assets/ProteinIcon.png';
 import fatsImage from '../assets/Fats&OilsIcon.png';
 import sugarsImage from '../assets/SugarsIcon.png';
+import { AddModal } from './AddModal';
 
 
 const AddFoodLaunch = () => {
+    const [category, setCategory] = React.useState('')
+    const [open, setOpen] = React.useState(false)
 
     function changeButtonHandler(e) {
         // trigger add modal
@@ -18,47 +21,68 @@ const AddFoodLaunch = () => {
     return (
         <div>
             <div className='add-food-btn'>
-                <AddButton> + </AddButton>
+                <AddButton onClick={()=>{
+                    setCategory('')
+                    setOpen(true)
+                }}> + </AddButton>
             </div>
             <Icons className='add-food-icons'>
-                <IconContainer>
+                <IconContainer onClick={()=>{
+                    setCategory('Vegetable')
+                    setOpen(true)
+                }}>
                     <VegButton>
                         <VegImage src={ vegImage } alt='vegetable icon' />
                     </VegButton>
                     <p>Vegetable</p>
                 </IconContainer>
-                <IconContainer>
+                <IconContainer onClick={()=>{
+                    setCategory('Fruits')
+                    setOpen(true)
+                }}>>
                     <Buttons>
                         <img src={ fruitImage } alt='fruit icon' />
                     </Buttons>
                     <p>Fruits</p>
                 </IconContainer>
-                <IconContainer>
+                <IconContainer onClick={()=>{
+                    setCategory('Whole Grains')
+                    setOpen(true)
+                }}>>
                     <Buttons>
                         <img src={ grainImage } alt='grain icon' />
                     </Buttons>
                     <p>Whole Grains</p>
                 </IconContainer>
-                <IconContainer>
+                <IconContainer onClick={()=>{
+                    setCategory('Protein')
+                    setOpen(true)
+                }}>>
                     <Buttons>
                         <img src={ proteinImage } alt='protein icon' />
                     </Buttons>
                     <p>Protein</p>
                 </IconContainer>
-                <IconContainer>
+                <IconContainer onClick={()=>{
+                    setCategory('Fats and Oils')
+                    setOpen(true)
+                }}>>
                     <Buttons>
                         <img src={ fatsImage } alt='fats and oils icon' />
                     </Buttons>
                     <p>Fats and Oils</p>
                 </IconContainer>
-                <IconContainer>
+                <IconContainer onClick={()=>{
+                    setCategory('Sugars')
+                    setOpen(true)
+                }}>>
                 <Buttons>
                     <img src={ sugarsImage } alt='sugars icon' />
                 </Buttons>
                 <p>Sugars</p>
                 </IconContainer>
             </Icons>
-
+            <AddModal {...{category,open,setOpen}} />
         </div>
     )
 }

@@ -8,9 +8,15 @@ import PortionRadioButton from './PortionRadioButton'
 export function EditForm(props) {
     // state
     const [input, setInput] = useState({
-        category: props.category||'',
-        portion: props.portion||'',
+        category: '',
+        portion: '',
     })
+
+    useEffect(()=>{
+        const {category, portion} = props
+        if (portion) setInput({category, portion})
+        if (category) setInput({...input, category})
+    },[props])
 
     function submitHandler(e) {
         e.preventDefault()
