@@ -8,6 +8,8 @@ font-weight: bold;
 font-size: 24px;
 line-height: 33px;
 color: #247CAD;
+margin-bottom: 0;
+margin-top: 104px;
 `;
 
 export const FieldContainer = styled.div`
@@ -18,6 +20,7 @@ align-items: center;
 
 export const FieldLabel = styled.label`
 display: flex;
+margin-bottom: 0;
 `;
 
 export const ActualLabel = styled.p`
@@ -29,6 +32,7 @@ line-height: 24px;
 color: black;
 background: white important!;
 padding-left: 5px;
+margin-bottom: 0;
 `;
 
 export const InputField = styled(Field)`
