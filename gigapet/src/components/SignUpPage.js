@@ -103,6 +103,7 @@ handleSubmit(values, {props, setStatus} ) {
     .then(response => {
       setStatus(response.data);
       console.log(response)
+      props.history.push('/kidsprofilesetup');
     })
     .catch(error => console.log(error.response))
 },
