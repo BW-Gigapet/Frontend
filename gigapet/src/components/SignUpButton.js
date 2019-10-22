@@ -11,7 +11,7 @@ const ButtonContainer = styled.div`
 const SignUpButton = () => {     
    
     return ( 
-        <ButtonContainer class="buttonContainer">
+        <ButtonContainer className="buttonContainer">
             <Link to="/signup">
                 <LinkButtonDefault>Sign Up</LinkButtonDefault>
             </Link>

@@ -37,7 +37,7 @@ line-height: 24px;
 const LogInButton = () => {     
    
     return ( 
-        <ButtonContainer class="buttonContainer">
+        <ButtonContainer className="buttonContainer">
             <Link to="/login">
                 <LinkButtonDefault>Log In</LinkButtonDefault>
             </Link>
