@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { withFormik, Form, Field } from "formik";
+import { withFormik, Form } from "formik";
 import { useHistory } from "react-router-dom";
 import * as Yup from "yup";
 import axios from 'axios';
@@ -20,7 +20,9 @@ const AddKidForm = ({ errors, touched, status, props }) => {
   const handleClick = () => {
   history.push("/kidsprofilesetup")
   };
-  
+
+  const id = props.match.params.id
+
   return (
     <div className="addKidForm">
       <div className="arrowButtonContainer">
@@ -69,9 +71,11 @@ const FormikSignUpForm = withFormik({
             .min(2, "You must enter 2 or more letters!")
             .required("User Name is required!"),
         }),
-        
+
+
         handleSubmit(values, {props, setStatus} ) {
           console.log('values', values);
+
           axios
             .post(`https://bw-gigapet-ft.herokuapp.com/api/users/{id}/children`, values) // add back $ before {id}
             //add correct API & anything else needed for functionality
