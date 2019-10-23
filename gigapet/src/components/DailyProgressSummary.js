@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import DailyProgressCategory from './DailyProgressCategory';
+import { connect } from 'react-redux';
+import { fetchMeals } from '../actions';
 
 const categories = [
     {
-        name: 'Vegetable',
+        name: 'Vegetables',
         id: 'veg',
         progressBar: '#EBF9EF',
         fillerColor: '#82D99C'
 
     },
     {
-        name: 'Fruit',
+        name: 'Fruits',
         progressBar: '#F7F5DE',
         fillerColor: '#DBCF61'
     },
@@ -41,6 +43,13 @@ const categories = [
 
 const DailyProgressSummary = (props) => {
     console.log('Daily Progress Summary props', props)
+
+    useEffect(() => {
+        if (props.loggedInUser.childAccounts){
+            props.fetchMeals(props.loggedInUser.childAccounts[0].id)
+        }
+    },[props.loggedInUser])
+
     return (
         <div>
             <button>Edit</button>
@@ -53,4 +62,17 @@ const DailyProgressSummary = (props) => {
     )
 }
 
-export default DailyProgressSummary;
+const mapStateToProps = state => {
+    console.log('mapsStateToProps state in Daily Progress Summary', state)
+
+    return {
+
+      loggedInUser: state.loggedInUser,
+      mealData: state.mealData,
+      isLoading: state.isLoading,
+      error: state.error
+
+    }
+  }
+
+export default connect(mapStateToProps, { fetchMeals })(DailyProgressSummary);

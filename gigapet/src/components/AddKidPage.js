@@ -2,14 +2,21 @@ import React, { useState, useEffect } from "react";
 import { withFormik, Form } from "formik";
 import { useHistory } from "react-router-dom";
 import * as Yup from "yup";
-import axios from 'axios';
+// import axios from 'axios';
 import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer, ArrowButton } from "./FormStyles";
+import axiosWithAuth from "../utils/axiosWithAuth";
+import { connect } from 'react-redux';
+import { getLoggedInUser } from '../actions';
 
 const AddKidForm = ({ errors, touched, status }) => {
+  console.log('AddKidForm props', errors, touched, status)
 
   const [kid, setKid] = useState([]);
+  //const [loggedInUser, setLoggedInUser] = useState({})
+  console.log('AddKid state', kid)
 
   useEffect(() => {
+
     if (status) {
     setKid([...kid, status]);
     }
@@ -37,7 +44,7 @@ const AddKidForm = ({ errors, touched, status }) => {
                 <ActualLabel>User Name</ActualLabel>
               </FieldLabel>
               <div className="nameInputContainer">
-                <InputField type="text" name="username" placeholder="User Name" size="45"/>
+                <InputField type="text" name="name" placeholder="User Name" size="45"/>
               </div>
             </div>
         </FieldContainer>
@@ -58,32 +65,46 @@ const AddKidForm = ({ errors, touched, status }) => {
 
 const FormikSignUpForm = withFormik({
 
-    mapPropsToValues({ username }) {
+//=============Initializing Form's Empty State==================
+    mapPropsToValues({ name }) {
         return {
-            username: username || "",
+            name: name || "",
         };
     },
 
     validationSchema: Yup.object().shape({
-        username: Yup.string()
+        name: Yup.string()
             .min(2, "You must enter 2 or more letters!")
             .required("User Name is required!"),
         }),
 
 
         handleSubmit(values, {props, setStatus} ) {
-          console.log('values', values);
-
-          axios
-            .post(`https://bw-gigapet-ft.herokuapp.com/api/users/{id}/children`, values) // add back $ before {id}
-            //add correct API & anything else needed for functionality
-            .then(response => {
-              setStatus(response.data);
-              console.log(response);
-              props.history.push('/successaddkid');
-            })
-            .catch(error => console.log(error.response))
-        },   
-    })(AddKidForm);
+          console.log('values and props', values, props);
+              axiosWithAuth()
+                .post(`/api/users/${props.loggedInUser.id}/children`, values) 
+                
+                .then(res => {
+                  setStatus(res.data);
+                  console.log('response from POST for adding Kid', res);
+                  props.getLoggedInUser();
+                  props.history.push('/successaddkid');
+                })
+                .catch(error => console.log(error.response))
+        },
+//======END POST REQUEST==========
         
-  export default FormikSignUpForm;
+    })(AddKidForm);
+
+    const mapStateToProps = state => {
+      console.log('mapsStateToProps state in Add Kid', state)
+
+      return {
+        loggedInUser: state.loggedInUser,
+        mealData: state.mealData,
+        isLoading: state.isLoading,
+        error: state.error
+      }
+    }
+        
+  export default connect(mapStateToProps, { getLoggedInUser })(FormikSignUpForm);

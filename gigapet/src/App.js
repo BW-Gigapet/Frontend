@@ -37,7 +37,7 @@ function App() {
 
       <Route exact path='/test/EditModal' render={props => <Overlay {...props}><EditModal {...props} /></Overlay>} />
       <Route exact path='/test/Avatar' component={Avatar} />
-      <Route exact path='/test/Dashboard' component={Dashboard} />
+      <Route exact path='/dashboard' component={Dashboard} />
       <Footer />
     </div>
   );

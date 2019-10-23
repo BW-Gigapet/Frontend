@@ -29,7 +29,8 @@ const AnimalsImageContainer = styled.div`
 margin: 51px;
 `;
 
-export default function KidsProfileSetup() {
+export default function KidsProfileSetup(props) {
+  console.log('KidSetup props', props)
 
   let history = useHistory();
 

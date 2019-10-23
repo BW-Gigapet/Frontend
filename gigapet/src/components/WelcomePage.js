@@ -31,8 +31,8 @@ const AnimalsImageContainer = styled.div`
 margin: 51px;
 `;
 
-export default function WelcomePage() {
-    
+export default function WelcomePage(props) {
+console.log("Welcome page props", props)
     return (
       <WelcomePageContainer className="welcome-page">
            <WelcomeTitle>Welcome to Gigapet</WelcomeTitle>
