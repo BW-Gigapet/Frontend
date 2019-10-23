@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom'
 
-import DefaultButton from './DefaultButton';
+import { DefaultButton } from './FormButton';
 import { ArrowButton } from './FormStyles';
 
 const PageContainer = styled.section`
@@ -35,7 +35,7 @@ export default function KidsProfileSetup(props) {
   let history = useHistory();
 
   const handleClick = () => {
-    history.push("/signup")
+    history.push("/")
   };
 
     return (
@@ -47,10 +47,8 @@ export default function KidsProfileSetup(props) {
               <img className="ButtonImage" src={ require('../assets/BackArrow.png')} alt="arrowIcon" />
             </ArrowButton>
           </div>
-          <SetUpQuestion>Do you want to begin setting up your kids profile?</SetUpQuestion>
-          <p>You can always add them later but we recommend getting started!</p>
+          <SetUpQuestion>Begin setting up your kids profile!</SetUpQuestion>
           <DefaultButton label={"Yes"} link={"/addkidpage"} />{/* add correct links, history needed? */}
-          <DefaultButton label={"Skip"} link={"/login"} />{/* add correct links, history needed? */}
         </div>
         <AnimalsImageContainer className="animalsImageContainer">
         <img

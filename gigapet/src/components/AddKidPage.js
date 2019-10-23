@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { withFormik, Form } from "formik";
 import { useHistory } from "react-router-dom";
 import * as Yup from "yup";
-// import axios from 'axios';
 import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer, ArrowButton } from "./FormStyles";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { connect } from 'react-redux';
@@ -25,18 +24,20 @@ const AddKidForm = ({ errors, touched, status }) => {
   let history = useHistory();
 
   const handleClick = () => {
-  history.push("/kidsprofilesetup")
+  history.push("/")
   };
 
   return (
     <div className="addKidForm">
-      <div className="arrowButtonContainer">
+      <Form >
+        <div className="arrowButtonContainer">
+          <div className="TopContent">
           <ArrowButton onClick={handleClick} className="arrowBackButton">
             <img className="ButtonImage" src={ require('../assets/BackArrow.png')} alt="arrowIcon" />
           </ArrowButton>
-      </div>
-      <Form >
+          </div>
         <FormTitle>Sign Up</FormTitle>
+        </div>
         <FieldContainer className="nameContainer">
         {touched.name && errors.name && <p className="warning">{errors.name}</p>}
             <div className="name">
@@ -65,7 +66,6 @@ const AddKidForm = ({ errors, touched, status }) => {
 
 const FormikSignUpForm = withFormik({
 
-//=============Initializing Form's Empty State==================
     mapPropsToValues({ name }) {
         return {
             name: name || "",
@@ -92,7 +92,6 @@ const FormikSignUpForm = withFormik({
                 })
                 .catch(error => console.log(error.response))
         },
-//======END POST REQUEST==========
         
     })(AddKidForm);
 

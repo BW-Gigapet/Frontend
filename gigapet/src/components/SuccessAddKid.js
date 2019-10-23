@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom'
 
-import DefaultButton from './DefaultButton';
+import { DefaultButton } from './FormButton';
 import { ArrowButton } from './FormStyles';
 
 const PageContainer = styled.section`
@@ -33,7 +33,7 @@ export default function KidsProfileSetup() {
   let history = useHistory();
 
   const handleClick = () => {
-    history.push("/addkidpage")
+    history.push("/")
   };
 
     return (
