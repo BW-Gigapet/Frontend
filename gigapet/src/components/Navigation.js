@@ -22,7 +22,7 @@ console.log('Navigation props', props)
                         <div className='nav-links'>
                             <Ul>
                                 <Li>
-                                    <Link onClick={landingHandler}>Discover</Link>
+                                    <Link onClick={landingHandler}>Discover</Link> {/* error, Link requires "to" property */}
                                 </Li>
                                 <Li>
                                     <NavLink to='/login'>Login</NavLink>
