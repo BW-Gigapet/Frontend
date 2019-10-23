@@ -5,9 +5,11 @@ import axios from "axios";
 import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer } from "./FormStyles";
 
 const LogInForm = ({ errors, touched, status, values }) => {
+  console.log('props in Login', errors, touched, status)
 
   //======SET STATE OF DATA TO USE IN POSTING/GETTING (see POST code below)===========
   const [users, setUsers] = useState([]);
+  console.log('state in Login Form', users)
 
   useEffect(() => {
     if (status) {
@@ -78,16 +80,17 @@ validationSchema: Yup.object().shape({
 
 //======POST REQUEST (see how status is set above)==========
 
-handleSubmit(values, {setStatus} ) {
+handleSubmit(values, {props, setStatus} ) {
   console.log('values', values);
   axios 
     .post("https://bw-gigapet-ft.herokuapp.com/api/login", values)
-    .then(response => {
-      localStorage.setItem('token', response.data.token)
-      setStatus(response.data);
-      console.log('this is the response from axios post', response)
+    .then(res=> {
+      localStorage.setItem('token', res.data.token)
+      setStatus(res.data);
+      props.history.push('/dashboard');
+      console.log('this is the response from axios post', res)
     })
-    .catch(error => console.log(error.response))
+    .catch(error => console.log(error.res))
 },
 
 //======END POST REQUEST==========
