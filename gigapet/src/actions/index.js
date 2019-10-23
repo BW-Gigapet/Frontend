@@ -25,7 +25,7 @@ export const fetchMeals = (childId) => dispatch => {
 }
 
 
-export const getLoggedInUser = () => dispatch => {
+export const getLoggedInUser = (callback) => dispatch => {
     dispatch({ type: LOGIN_START })
 
     axiosWithAuth()
@@ -34,6 +34,7 @@ export const getLoggedInUser = () => dispatch => {
       console.log('response from GET id Kid', res)
       dispatch({ type: LOGIN_SUCCESS, payload: res.data.loggedInUser })
       //setLoggedInUser(res.data.loggedInUser)
+      callback();
       
     }) 
     .catch(err => {

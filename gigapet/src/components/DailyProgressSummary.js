@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Route, Redirect } from 'react-router-dom'
 import DailyProgressCategory from './DailyProgressCategory';
 import { connect } from 'react-redux';
 import { fetchMeals } from '../actions';
@@ -44,13 +45,18 @@ const categories = [
 const DailyProgressSummary = (props) => {
     console.log('Daily Progress Summary props', props)
 
+    const [hasChild, setHasChild] = useState(false)
+
     useEffect(() => {
-        if (props.loggedInUser.childAccounts){
+        setHasChild(props.loggedInUser.childAccounts && props.loggedInUser.childAccounts.length > 0)
+        if (hasChild){
             props.fetchMeals(props.loggedInUser.childAccounts[0].id)
         }
+       
     },[props.loggedInUser])
 
     return (
+        
         <div>
             <button>Edit</button>
             {/* map categories */}
@@ -76,3 +82,5 @@ const mapStateToProps = state => {
   }
 
 export default connect(mapStateToProps, { fetchMeals })(DailyProgressSummary);
+
+

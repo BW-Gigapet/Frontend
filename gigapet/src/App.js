@@ -9,6 +9,7 @@ import LogInPage from './components/LogInPage';
 import KidsProfileSetup from './components/KidsProfileSetup';
 import AddKidPage from './components/AddKidPage';
 import SuccessAddKid from './components/SuccessAddKid'
+import PrivateRoute from './components/PrivateRoute';
 // import AddFoodLaunch from './components/AddFoodLaunch';
 import Overlay from './components/Overlay';
 import EditModal from './components/EditModal';
@@ -28,7 +29,7 @@ function App() {
       <Route exact path="/" component={WelcomePage} />
       <Route exact path="/signup" component={SignUpPage} />
       <Route exact path="/login" component={LogInPage} />
-      <Route exact path={["/home","/dashboard","/home/edit"]} component={Dashboard} />
+      <PrivateRoute exact path={["/dashboard/","/dashboard/edit"]} render={props => <Dashboard {...props} />} />
       <Route exact path="/kidsprofilesetup" component={KidsProfileSetup} />
       <Route exact path="/addkidpage" component={AddKidPage} />
       <Route exact path="/successaddkid" component={SuccessAddKid} />

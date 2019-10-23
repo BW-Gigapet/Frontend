@@ -84,8 +84,15 @@ handleSubmit(values, {props, setStatus} ) {
     .then(res=> {
       localStorage.setItem('token', res.data.token)
       setStatus(res.data);
-      props.getLoggedInUser();
-      setTimeout(props.history.push('/dashboard'), 1000);
+      props.getLoggedInUser(() => {
+        if (props.loggedInUser.childAccounts.length > 0){
+          props.history.push('/dashboard')
+        }
+        else {
+          props.history.push('/addkidpage')
+        }
+      });
+      
       console.log('this is the response from axios post', res)
     })
     .catch(error => console.log(error.res))
