@@ -4,6 +4,7 @@ import AddFoodLaunch from './AddFoodLaunch'
 import Summary from './Summary'
 import Avatar from './Avatar'
 import { AddModal } from './AddModal'
+import Editing from './Editing'
 
 
 const Dashboard = props => {
@@ -16,7 +17,7 @@ const Dashboard = props => {
                 <AddFoodLaunch />
             </div>
             <div>
-                <Summary />
+                {/edit/.test(props.match.url)?<Editing />:<Summary />}
                 <Avatar />
             </div>
         </div>

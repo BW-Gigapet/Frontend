@@ -25,7 +25,7 @@ function App() {
       <Route exact path="/" component={WelcomePage} />
       <Route exact path="/signup" component={SignUpPage} />
       <Route exact path="/login" component={LogInPage} />
-      <Route exact path="/home" component={Dashboard} />
+      <Route exact path={["/home","/dashboard","/home/edit"]} component={Dashboard} />
       <Route exact path ="/kidsprofilesetup" component={KidsProfileSetup} />
       <Route exact path ="/addkidpage" component={AddKidPage} />
 
@@ -33,7 +33,7 @@ function App() {
 
       <Route exact path='/test/EditModal' render={props => <Overlay {...props}><EditModal {...props} /></Overlay>} />
       <Route exact path='/test/Avatar' component={Avatar} />
-      <Route exact path='/dashboard' component={Dashboard} />
+      {/* <Route exact path='/dashboard' component={Dashboard} /> */}
       <Footer />
     </div>
   );
