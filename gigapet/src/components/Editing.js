@@ -1,32 +1,52 @@
 import React from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux'
+import axiosWithAuth from '../utils/axiosWithAuth'
 
+import categories from '../categories'
 
 import { SelectCategory, CategoryBanner, EditingTable } from './index'
 
-export class Editing extends React.Component {
+class EditingClass extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            category: 'Vegetable',
+            category: 'Vegetables',
             meals: [],
             error: '',
         }  
     }
 
+    getData = () => { 
+        const childId = this.props.loggedInUser.childAccounts[0].id
+        axiosWithAuth().get(`/api/child/${childId}/meals?filter=today&&foodType=${this.state.category}`)
+        .then(res => {
+            if (this.mounted) {
+                console.log(res.data);
+                this.setState({meals: res.data.meals})
+            }
+        })
+        .catch((error) => {
+            console.log(error)
+        });
+    }
+
     componentDidMount() {
-        axios.get('https://bw-gigapet-ft.herokuapp.com/api/meals/') /*get id from state*/
-              .then(res => { 
-                  console.log(res.data);
-                  this.setState({meals: res.data.meals})
-              })
-              .catch((error) => {
-                  console.log(error)
-              });
+        this.mounted = true
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.category !== this.state.category || prevProps !== this.props) {
+            this.getData()
         }
+    }
 
     componentWillUnmount() {
         //cleanup
+        this.mounted = false
+    }
+
+    setCategory = category => {
+        this.setState({category})
     }
 
     render() {
@@ -37,9 +57,9 @@ export class Editing extends React.Component {
                 <p>Back to Summary</p> {/* link or change parent state ? */}
             </div>
             <div>
-                {/* select category */}
+                {categories.map((category,index) => <SelectCategory key={index} category={category} active={this.state.category === category} setCategory={this.setCategory} />)}
                 <div>
-                    {/* selected category banner */}
+                    <CategoryBanner category={this.state.category} />
                     {/* data display */}
                     <EditingTable meals={this.state.meals} />
                 </div>
@@ -48,5 +68,13 @@ export class Editing extends React.Component {
         )
     }
 }
+
+function mapStateToProps({ loggedInUser }) {
+    return {
+        loggedInUser
+    }
+}
+
+export const Editing = connect(mapStateToProps)(EditingClass)
 
 export default Editing

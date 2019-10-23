@@ -52,7 +52,7 @@ const DailyProgressSummary = (props) => {
 
     return (
         <div>
-            <button>Edit</button>
+            <button onClick={()=>{props.history.push('/dashboard/edit')}}>Edit</button>
             {/* map categories */}
             {categories.map(category => (
                 <DailyProgressCategory /*key={}*/ category={category} />
