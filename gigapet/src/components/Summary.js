@@ -107,9 +107,8 @@ class SummaryClass extends React.Component {
 }
 
 function mapStateToProps(state) {
-    return {
-        loggedInUser: state.loggedInUser
-    }
+    const { loggedInUser, mealData } = state
+    return { loggedInUser, mealData }
 }
 
 export const Summary = connect(mapStateToProps)(SummaryClass)
