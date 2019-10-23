@@ -1,23 +1,15 @@
 import {
     FETCH_MEALS_START,
     FETCH_MEALS_SUCCESS,
-    FETCH_MEALS_FAILURE
+    FETCH_MEALS_FAILURE,
+    LOGIN_START,
+    LOGIN_SUCCESS,
+    LOGIN_FAILURE
 } from '../actions';
 
 const initialState = {
-    // parent: {},
+    loggedInUser: {},
     mealData: [],
-    categoryData: 
-        {
-            veg: 0,
-            fruit: 0,
-            wholegrain: 0,
-            protein: 0,
-            fatsoils: 0,
-            sugars: 0
-
-        }
-    ,
     isLoading: false,
     error: ''
 }
@@ -42,7 +34,27 @@ export const reducer = ( state = initialState, action ) => {
                 ...state,
                 isLoading: false,
                 error: action.payload
-            }     
+            }  
+            case LOGIN_START:
+                    return {
+                        ...state,
+                        isLoading: true,
+                        error: ''
+                    }     
+        case LOGIN_SUCCESS:
+            return {
+                ...state,
+                loggedInUser: action.payload,
+                isLoading: false,
+                error: ''
+            }
+        case LOGIN_FAILURE:
+            return {
+                ...state,
+                loggedInUser: {},
+                isLoading: false,
+                error: action.payload
+            }          
         default:
             return state;
     }

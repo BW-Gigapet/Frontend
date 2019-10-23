@@ -5,8 +5,10 @@ import * as Yup from "yup";
 // import axios from 'axios';
 import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer } from "./FormStyles";
 import axiosWithAuth from "../utils/axiosWithAuth";
+import { connect } from 'react-redux';
+import { getLoggedInUser } from '../actions';
 
-const AddKidForm = ({ errors, touched, status }) => {
+const AddKidForm = ({ errors, touched, status, props }) => {
   console.log('AddKidForm props', errors, touched, status)
 
   //======SET STATE OF DATA TO USE IN POSTING/GETTING (see POST code below)===========
@@ -15,7 +17,6 @@ const AddKidForm = ({ errors, touched, status }) => {
   console.log('AddKid state', kid)
 
   useEffect(() => {
-    
 
     if (status) {
     setKid([...kid, status]);
@@ -92,29 +93,30 @@ const FormikSignUpForm = withFormik({
         
         handleSubmit(values, {props, setStatus} ) {
           console.log('values and props', values, props);
-          axiosWithAuth()
-            .get('/api/users')
-            .then(res => {
-              console.log('response from GET id Kid', res)
-              //setLoggedInUser(res.data.loggedInUser)
               axiosWithAuth()
-                .post(`/api/users/${res.data.loggedInUser.id}/children`, values) // add back $ before {id}
-                //add correct API & anything else needed for functionality
+                .post(`/api/users/${props.loggedInUser.id}/children`, values) 
+                
                 .then(res => {
                   setStatus(res.data);
                   console.log('response from POST for adding Kid', res);
+                  props.getLoggedInUser();
                   props.history.push('/dashboard');
                 })
                 .catch(error => console.log(error.res))
-            }) 
-            .catch(err => {
-              console.log('could not render data', err)
-            })
-
-          
         },
 //======END POST REQUEST==========
         
     })(AddKidForm);
+
+    const mapStateToProps = state => {
+      console.log('mapsStateToProps state in Add Kid', state)
+
+      return {
+        loggedInUser: state.loggedInUser,
+        mealData: state.mealData,
+        isLoading: state.isLoading,
+        error: state.error
+      }
+    }
         
-  export default FormikSignUpForm;
+  export default connect(mapStateToProps, { getLoggedInUser })(FormikSignUpForm);

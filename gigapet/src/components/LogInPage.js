@@ -3,6 +3,9 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer } from "./FormStyles";
+import { connect } from 'react-redux';
+import { getLoggedInUser } from '../actions';
+
 
 const LogInForm = ({ errors, touched, status, values }) => {
   console.log('props in Login', errors, touched, status)
@@ -87,7 +90,8 @@ handleSubmit(values, {props, setStatus} ) {
     .then(res=> {
       localStorage.setItem('token', res.data.token)
       setStatus(res.data);
-      props.history.push('/dashboard');
+      props.getLoggedInUser();
+      setTimeout(props.history.push('/dashboard'), 1000);
       console.log('this is the response from axios post', res)
     })
     .catch(error => console.log(error.res))
@@ -97,4 +101,14 @@ handleSubmit(values, {props, setStatus} ) {
 
 })(LogInForm);
 
-export default FormikLogInForm;
+const mapStateToProps = state => {
+  console.log('mapsStateToProps state in Login', state)
+
+  return {
+    loggedInUser: state.loggedInUser,
+    isLoading: state.isLoading,
+    error: state.error
+  }
+}
+
+export default connect(mapStateToProps, { getLoggedInUser })(FormikLogInForm);

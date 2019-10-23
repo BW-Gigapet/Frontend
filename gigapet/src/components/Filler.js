@@ -6,7 +6,7 @@ const Filler = (props) => {
     return (
         <div 
             className='filler'
-            style={{width: `${props.percentage}%`, background: `${props.category.fillerColor}`}}
+            style={{width: `${props.percentage}%`, maxWidth: '100%', background: `${props.category.fillerColor}`}}
 
         />
     )
