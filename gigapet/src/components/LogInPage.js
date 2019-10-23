@@ -96,8 +96,7 @@ handleSubmit(values, {props, setStatus} ) {
     .then(res=> {
       localStorage.setItem('token', res.data.token)
       setStatus(res.data);
-      props.getLoggedInUser();
-      setTimeout(props.history.push('/dashboard'), 1000);
+      props.getLoggedInUser(() => {props.history.push('/dashboard')})
       console.log('this is the response from axios post', res)
     })
     .catch(error => console.log(error.res))

@@ -42,8 +42,6 @@ const DailyProgressCategory = (props) => {
         <div>
             <p>{props.category.name}</p>
             <ProgressBar percentage={percentage} category={props.category}/>
-            {/* <div>{props.category.vegetable}</div> */}
-            <p>{/*categoryProgress*/}</p>
             <p>{percentage}%</p>
 
             {/* reduce the daily entries  */}

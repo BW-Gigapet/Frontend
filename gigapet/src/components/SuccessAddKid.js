@@ -47,7 +47,7 @@ export default function KidsProfileSetup() {
           </div>
           <SuccessTitle>Alright!</SuccessTitle>
           <SuccessMessage>Download the Gigapet app on your kid's device so they can see how their Gigapet is doing!</SuccessMessage>
-          <DefaultButton label={"Start Logging"} link={"/home"} />
+          <DefaultButton label={"Start Logging"} link={"/dashboard"} />
         </div>
         <AnimalsImageContainer className="animalsImageContainer">
         <img
