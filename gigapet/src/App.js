@@ -15,6 +15,7 @@ import Avatar from './components/Avatar';
 import Dashboard from './components/Dashboard';
 // import DailyProgressSummary from './components/DailyProgressSummary';
 // import AddFoodLaunch from './components/AddFoodLaunch';
+import Editing from './components/Editing';
 
 
 function App() {

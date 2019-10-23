@@ -7,7 +7,6 @@ import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkBut
 
 const AddKidForm = ({ errors, touched, status, props }) => {
 
-  //======SET STATE OF DATA TO USE IN POSTING/GETTING (see POST code below)===========
   const [kid, setKid] = useState([]);
 
   useEffect(() => {
@@ -15,8 +14,6 @@ const AddKidForm = ({ errors, touched, status, props }) => {
     setKid([...kid, status]);
     }
   }, [status])
-
-  //======END SET STATE OF DATA TO USE IN POSTING/GETTING===========
 
   //  create proper functionality for back button
     
@@ -35,13 +32,13 @@ const AddKidForm = ({ errors, touched, status, props }) => {
       </div>
       <Form >
         <FormTitle>Sign Up</FormTitle>
-        <FieldContainer className="usernameContainer">
-        {touched.username && errors.username && <p className="warning">{errors.username}</p>}
-            <div className="username">
-              <FieldLabel htmlFor="username">
+        <FieldContainer className="nameContainer">
+        {touched.name && errors.name && <p className="warning">{errors.name}</p>}
+            <div className="name">
+              <FieldLabel htmlFor="name">
                 <ActualLabel>User Name</ActualLabel>
               </FieldLabel>
-              <div className="usernameInputContainer">
+              <div className="nameInputContainer">
                 <InputField type="text" name="username" placeholder="User Name" size="45"/>
               </div>
             </div>
@@ -66,23 +63,17 @@ const AddKidForm = ({ errors, touched, status, props }) => {
 
 const FormikSignUpForm = withFormik({
 
-//=============Initializing Form's Empty State==================
     mapPropsToValues({ username }) {
         return {
             username: username || "",
         };
     },
-//=============End Initializing Form's Empty State==================
-    
-//======VALIDATION SCHEMA==========
+
     validationSchema: Yup.object().shape({
         username: Yup.string()
             .min(2, "You must enter 2 or more letters!")
             .required("User Name is required!"),
         }),
-//======END VALIDATION SCHEMA==========
-        
-//======POST REQUEST (see how status is set above)==========
         
         handleSubmit(values, {props, setStatus} ) {
           console.log('values', values);
@@ -95,9 +86,7 @@ const FormikSignUpForm = withFormik({
               props.history.push('/');
             })
             .catch(error => console.log(error.response))
-        },
-//======END POST REQUEST==========
-        
+        },   
     })(AddKidForm);
         
   export default FormikSignUpForm;

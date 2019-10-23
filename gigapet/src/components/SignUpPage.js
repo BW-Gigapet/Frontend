@@ -20,14 +20,14 @@ const SignUpForm = ({ errors, touched, status }) => {
     <div className="signUpForm">
       <Form >
         <FormTitle>Sign Up</FormTitle>
-        <FieldContainer className="usernameContainer">
-        {touched.username && errors.username && <p className="warning">{errors.username}</p>}
-            <div className="username">
-              <FieldLabel htmlFor="username">
+        <FieldContainer className="nameContainer">
+        {touched.name && errors.name && <p className="warning">{errors.name}</p>}
+            <div className="name">
+              <FieldLabel htmlFor="name">
                 <ActualLabel>User Name</ActualLabel>
               </FieldLabel>
-              <div className="usernameInputContainer">
-                <InputField type="text" name="username" placeholder="User Name" size="45"/>
+              <div className="nameInputContainer">
+                <InputField type="text" name="name" placeholder="User Name" size="45"/>
               </div>
             </div>
         </FieldContainer>
@@ -71,9 +71,9 @@ const SignUpForm = ({ errors, touched, status }) => {
 const FormikSignUpForm = withFormik({
 
 //=============Initializing Form's Empty State==================
-mapPropsToValues({ username, email, password }) {
+mapPropsToValues({ name, email, password }) {
     return {
-        username: username || "",
+        name: name || "",
         email: email || "",
         password: password || "",
     };
@@ -82,7 +82,7 @@ mapPropsToValues({ username, email, password }) {
 
 //======VALIDATION SCHEMA==========
 validationSchema: Yup.object().shape({
-    username: Yup.string()
+    name: Yup.string()
         .min(2, "You must enter 2 or more letters!")
         .required("Name is required!"),
     email: Yup.string()

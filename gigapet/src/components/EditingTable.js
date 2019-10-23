@@ -15,7 +15,7 @@ export function EditingTable(props) {
             </thead>
             <tbody>
                 {/* map table entries */}
-                {props.meals.map(meal => <EditingEntry key={meal.id} meal={meal})} />
+                {props.meals.map(meal => <EditingEntry key={meal.id} meal={meal}/>)} 
             </tbody>
         </table>
     )
