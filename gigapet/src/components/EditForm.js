@@ -28,9 +28,11 @@ export function EditForm(props) {
         e.preventDefault()
         if (props.portion) {
             // axios put
+            // const mealId = props.id
         }
         else {
             // axios post
+            const childId = props.loggedInUser.childAccounts[0].id
 
             //From DOMINIQUE:
             //hard coded sample entry because I couldn't figure out your control and did not want to mess with it
@@ -40,18 +42,18 @@ export function EditForm(props) {
             
             const sampleEntry =
             {
-                "name":"Whole Grains",
-                "portionSize":"medium",
-                "date": date.toLocaleDateString('en-US'),
-                "time":"01:37"
+                name: input.category,
+                portionSize: input.portion,
+                date: date.toISOString(),
+                time: `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
             }
 
 
             axiosWithAuth()
-            .post(`/api/child/${props.loggedInUser.childAccounts[0].id}/meals`, sampleEntry)
+            .post(`/api/child/${childId}/meals`, sampleEntry)
             .then(res => {
                 console.log('POST add meal in Edit Form', res)
-                props.fetchMeals(props.loggedInUser.childAccounts[0].id);
+                props.fetchMeals(childId);
             })
             .catch(err => console.log(err))
         }
@@ -83,12 +85,7 @@ const mapStateToProps = state => {
     console.log('mstp edit form', state)
 
     return {
-
         loggedInUser: state.loggedInUser,
-        mealData: state.mealData,
-        isLoading: state.isLoading,
-        error: state.error
-
     }
 }
 

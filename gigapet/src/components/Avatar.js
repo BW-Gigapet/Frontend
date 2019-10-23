@@ -34,13 +34,13 @@ const waveRightTired = keyframes`
 const blink = keyframes`50% { opacity: 0.33;}`
 
 
-const Container = styled.div`position:relative;`
+const Container = styled.div`
+position: relative;
+overflow: hidden;
+`
 
 const Backgorund = styled.img`
 width: 100%;
-position: absolute;
-z-index: 1;
-left: 0;
 `
 
 const BearBody = styled.img`

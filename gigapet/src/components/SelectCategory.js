@@ -1,10 +1,13 @@
 import React from 'react'
+import styled from 'styled-components'
 
-export function SelectCategory(props) {
+// style for active effect
+
+export function SelectCategory({category, setCategory, active}) {
     return (
-        <div>
-            {/* map categories, highlight current selection */}
-        </div>
+        <h6 // replace with styled component, pass "active" in props
+            onClick={()=>{setCategory(category)}}
+        >{category}</h6>
     )
 }
 
