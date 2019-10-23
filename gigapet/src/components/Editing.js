@@ -36,6 +36,7 @@ class EditingClass extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (prevState.category !== this.state.category || prevProps !== this.props) {
+            console.log('update editing, props change', prevProps !== this.props)
             this.getData()
         }
     }
@@ -69,9 +70,9 @@ class EditingClass extends React.Component {
     }
 }
 
-function mapStateToProps({ loggedInUser }) {
+function mapStateToProps(state) {
     return {
-        loggedInUser
+        loggedInUser: state.loggedInUser
     }
 }
 

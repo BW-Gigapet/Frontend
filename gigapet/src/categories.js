@@ -3,7 +3,7 @@ export const categories = [
     'Fruits',
     'Whole Grains',
     'Protein',
-    'Fats and Oils',
+    'Fats & Oils',
     'Sugars'
 ]
 
