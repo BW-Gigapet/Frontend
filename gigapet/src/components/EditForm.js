@@ -44,8 +44,8 @@ export function EditForm(props) {
             {
                 name: input.category,
                 portionSize: input.portion,
-                date: date.toLocaleDateString('en-US'),
-                time: date.toLocaleTimeString('it-IT')
+                date: date.toISOString(),
+                time: `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
             }
 
 
