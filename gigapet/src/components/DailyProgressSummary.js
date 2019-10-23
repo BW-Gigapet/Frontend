@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import DailyProgressCategory from './DailyProgressCategory';
 import { connect } from 'react-redux';
 import { fetchMeals } from '../actions';
+import { useHistory } from 'react-router-dom'
 
 const categories = [
     {
@@ -43,6 +44,7 @@ const categories = [
 
 const DailyProgressSummary = (props) => {
     console.log('Daily Progress Summary props', props)
+    const history = useHistory()
 
     useEffect(() => {
         if (props.loggedInUser.childAccounts){
@@ -52,7 +54,7 @@ const DailyProgressSummary = (props) => {
 
     return (
         <div>
-            <button onClick={()=>{props.history.push('/dashboard/edit')}}>Edit</button>
+            <button onClick={()=>{history.push('/dashboard/edit')}}>Edit</button>
             {/* map categories */}
             {categories.map(category => (
                 <DailyProgressCategory /*key={}*/ category={category} />
