@@ -1,11 +1,6 @@
-<<<<<<< HEAD
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-=======
-import React from 'react'
-import axios from 'axios'
->>>>>>> 3ced31cd0dd22677dff74345b8ef4fc4fcbdded6
+
 
 import { SelectCategory, CategoryBanner, EditingTable } from './index'
 
@@ -16,8 +11,7 @@ export class Editing extends React.Component {
             category: 'Vegetable',
             meals: [],
             error: '',
-        }
-        
+        }  
     }
 
     componentDidMount() {
