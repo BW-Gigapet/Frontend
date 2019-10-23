@@ -7,6 +7,8 @@ import { AddModal } from './AddModal'
 
 
 const Dashboard = props => {
+    // add routes dashboard/edit and dashboard/edit/:category
+    // if /edit, replace Summary with Editing
     return (
         <div>
             <div>
