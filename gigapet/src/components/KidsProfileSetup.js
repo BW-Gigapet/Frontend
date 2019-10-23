@@ -29,6 +29,7 @@ margin: 51px;
 `;
 
 export default function KidsProfileSetup(props) {
+  console.log('KidSetup props', props)
 
     // create proper functionality for back button
 
