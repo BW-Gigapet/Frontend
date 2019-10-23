@@ -17,7 +17,7 @@ const Dashboard = props => {
                 <AddFoodLaunch />
             </div>
             <div>
-                {/edit/.test(props.match.url)?<Editing />:<Summary />}
+                {/edit/i.test(props.match.url)?<Editing />:<Summary />}
                 <Avatar />
             </div>
         </div>
