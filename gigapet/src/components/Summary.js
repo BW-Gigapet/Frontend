@@ -90,7 +90,7 @@ class SummaryClass extends React.Component {
 
     render() {
         return (
-        <div>
+        <div hidden={this.props.hidden}>
             <h3>Summary</h3>
             <div>
                 <div>

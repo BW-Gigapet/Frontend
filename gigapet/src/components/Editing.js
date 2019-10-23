@@ -52,7 +52,7 @@ class EditingClass extends React.Component {
 
     render() {
         return (
-        <div>
+        <div hidden={this.props.hidden}>
             <div>
                 <h3>Editing</h3>
                 <p>Back to Summary</p> {/* link or change parent state ? */}
