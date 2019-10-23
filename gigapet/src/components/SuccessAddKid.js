@@ -33,7 +33,7 @@ export default function KidsProfileSetup() {
   let history = useHistory();
 
   const handleClick = () => {
-    history.push("/addkidpage")
+    history.push("/")
   };
 
     return (

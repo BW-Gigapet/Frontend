@@ -35,7 +35,7 @@ export default function KidsProfileSetup(props) {
   let history = useHistory();
 
   const handleClick = () => {
-    history.push("/signup")
+    history.push("/")
   };
 
     return (
@@ -48,9 +48,7 @@ export default function KidsProfileSetup(props) {
             </ArrowButton>
           </div>
           <SetUpQuestion>Do you want to begin setting up your kids profile?</SetUpQuestion>
-          <p>You can always add them later but we recommend getting started!</p>
           <DefaultButton label={"Yes"} link={"/addkidpage"} />{/* add correct links, history needed? */}
-          <DefaultButton label={"Skip"} link={"/login"} />{/* add correct links, history needed? */}
         </div>
         <AnimalsImageContainer className="animalsImageContainer">
         <img

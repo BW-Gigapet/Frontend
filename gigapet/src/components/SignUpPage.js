@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { withFormik, Form, Field } from "formik";
+import { withFormik, Form } from "formik";
 import * as Yup from "yup";
 import axios from 'axios';
 import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer } from "./FormStyles";
@@ -9,7 +9,7 @@ import { getLoggedInUser } from '../actions';
 
 const SignUpForm = ({ errors, touched, status }) => {
   console.log('props in Login', errors, touched, status)
-  //======SET STATE OF DATA TO USE IN POSTING/GETTING (see POST code below)===========
+
   const [users, setUsers] = useState([]);
   console.log('state in Signup Form', users)
 

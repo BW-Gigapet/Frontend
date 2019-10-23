@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { withFormik, Form } from "formik";
 import { useHistory } from "react-router-dom";
 import * as Yup from "yup";
-// import axios from 'axios';
 import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer, ArrowButton } from "./FormStyles";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { connect } from 'react-redux';
@@ -25,7 +24,7 @@ const AddKidForm = ({ errors, touched, status }) => {
   let history = useHistory();
 
   const handleClick = () => {
-  history.push("/kidsprofilesetup")
+  history.push("/")
   };
 
   return (
@@ -65,7 +64,6 @@ const AddKidForm = ({ errors, touched, status }) => {
 
 const FormikSignUpForm = withFormik({
 
-//=============Initializing Form's Empty State==================
     mapPropsToValues({ name }) {
         return {
             name: name || "",
@@ -92,7 +90,6 @@ const FormikSignUpForm = withFormik({
                 })
                 .catch(error => console.log(error.response))
         },
-//======END POST REQUEST==========
         
     })(AddKidForm);
 
