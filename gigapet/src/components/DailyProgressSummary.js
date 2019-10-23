@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import DailyProgressCategory from './DailyProgressCategory';
 import { connect } from 'react-redux';
 import { fetchMeals } from '../actions';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
 
 const categories = [
     {
@@ -46,15 +47,19 @@ const DailyProgressSummary = (props) => {
     console.log('Daily Progress Summary props', props)
     const history = useHistory()
 
+    const [child, setChild] = useState({})
+
     useEffect(() => {
         if (props.loggedInUser.childAccounts){
-            props.fetchMeals(props.loggedInUser.childAccounts[0].id)
+            setChild(props.loggedInUser.childAccounts[0])
+            props.fetchMeals(child.id)
         }
     },[props.loggedInUser])
 
     return (
         <div>
-            <button onClick={()=>{history.push('/dashboard/edit')}}>Edit</button>
+            <h1>{child.name}</h1>
+            <EditButton onClick={()=>{history.push('/dashboard/edit')}}>Edit</EditButton>
             {/* map categories */}
             {categories.map(category => (
                 <DailyProgressCategory /*key={}*/ category={category} />
@@ -78,3 +83,11 @@ const mapStateToProps = state => {
   }
 
 export default connect(mapStateToProps, { fetchMeals })(DailyProgressSummary);
+
+
+const EditButton = styled.button`
+  border: none;
+  font size: 1.5rem;
+  background: #f6f6f6;
+  font-weight: bold;
+`;

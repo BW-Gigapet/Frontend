@@ -1,7 +1,8 @@
 import React from 'react';
-import { Route, NavLink, Link } from 'react-router-dom';
+import { Route, NavLink, Link, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import image from '../assets/QR Bunny.png'
+
 
 const landingHandler = () => {
     window.location.href = ''
