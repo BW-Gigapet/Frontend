@@ -10,12 +10,12 @@ import PortionRadioButton from './PortionRadioButton'
 
 export function EditForm(props) {
     console.log('Edit form props', props)
+    
     // state
     const [input, setInput] = useState({
         category: '',
         portion: '',
     })
-
 
     useEffect(()=>{
         const {category, portion} = props
@@ -26,13 +26,33 @@ export function EditForm(props) {
 
     function submitHandler(e) {
         e.preventDefault()
-        if (props.portion) {
+        
+        const childId = props.loggedInUser.childAccounts[0].id
+        
+        if (props.edit) {
             // axios put
-            // const mealId = props.id
+            const mealId = props.edit.id
+
+            const entry = {
+                ...props.edit,
+                name: input.category,
+                portionSize: input.portion,
+            }
+
+            delete entry.percent
+
+            axiosWithAuth()
+            .put(`/api/meals/${mealId}`, entry)
+            .then(res => {
+                console.log('PUT edit meal in Edit Form', res)
+                props.fetchMeals(childId);
+                props.setOpen(false)
+            })
+            .catch(err => console.log(err.response))
         }
         else {
             // axios post
-            const childId = props.loggedInUser.childAccounts[0].id
+            // const childId = props.loggedInUser.childAccounts[0].id
 
             //From DOMINIQUE:
             //hard coded sample entry because I couldn't figure out your control and did not want to mess with it
@@ -54,6 +74,7 @@ export function EditForm(props) {
             .then(res => {
                 console.log('POST add meal in Edit Form', res)
                 props.fetchMeals(childId);
+                props.setOpen(false)
             })
             .catch(err => console.log(err))
         }

@@ -18,10 +18,11 @@ class SummaryClass extends React.Component {
     }
 
     getData = () => {
+        console.log(this.props)
         //axios get data
         console.log('Summary.js getData')
-        // axiosWithAuth().get(`/api/child/${this.props.loggedInUser.childAccounts[0].id}/meals?filter=prevThirty`)
-        axiosWithAuth().get(`/api/child/1/meals?filter=monthly&&foodType=${this.state.category}`)
+        const childId = this.props.loggedInUser.childAccounts[0].id
+        axiosWithAuth().get(`/api/child/${childId}/meals?filter=monthly&&foodType=${this.state.category}`)
             .then(resp => {
                 console.log(resp)
                 if (this.mounted) {
@@ -37,7 +38,7 @@ class SummaryClass extends React.Component {
                 console.log(err.response)
                 this.setState({monthly: '--'})
             })
-        axiosWithAuth().get(`/api/child/1/meals?filter=weekly&&foodType=${this.state.category}`)
+        axiosWithAuth().get(`/api/child/${childId}/meals?filter=weekly&&foodType=${this.state.category}`)
             .then(resp => {
                 console.log(resp)
                 if (this.mounted) {
@@ -51,7 +52,7 @@ class SummaryClass extends React.Component {
                 console.log(err.response)
                 this.setState({weekly: '--'})
             })
-        axiosWithAuth().get(`/api/child/1/meals?filter=yesterday&&foodType=${this.state.category}`)
+        axiosWithAuth().get(`/api/child/${childId}/meals?filter=yesterday&&foodType=${this.state.category}`)
             .then(resp => {
                 console.log(resp)
                 if (this.mounted) {
@@ -69,13 +70,13 @@ class SummaryClass extends React.Component {
 
     componentDidMount() {
         this.mounted = true
-        this.getData()
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (prevState.category !== this.state.category) {
+        if (prevState.category !== this.state.category || prevProps !== this.props) {
             this.getData()
         }
+        
     }
 
     componentWillUnmount() {
@@ -89,7 +90,7 @@ class SummaryClass extends React.Component {
 
     render() {
         return (
-        <div>
+        <div hidden={this.props.hidden}>
             <h3>Summary</h3>
             <div>
                 <div>
@@ -105,9 +106,9 @@ class SummaryClass extends React.Component {
     }
 }
 
-function mapStateToProps({ loggedInUser }) {
+function mapStateToProps(state) {
     return {
-        loggedInUser
+        loggedInUser: state.loggedInUser
     }
 }
 

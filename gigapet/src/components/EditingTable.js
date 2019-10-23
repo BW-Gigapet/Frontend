@@ -1,9 +1,13 @@
 import React from 'react'
 
-import { EditingEntry } from './index'
+import { EditingEntry, EditModal } from './index'
 
 export function EditingTable(props) {
+    const [edit, setEdit] = React.useState('')
+    const [open, setOpen] = React.useState(false)
+
     return (
+        <>
         <table>
             <thead>
                 <tr>
@@ -15,9 +19,11 @@ export function EditingTable(props) {
             </thead>
             <tbody>
                 {/* map table entries */}
-                {props.meals.map(meal => <EditingEntry key={meal.id} meal={meal}/>)} 
+                {props.meals.map(meal => <EditingEntry key={meal.id} meal={meal} setEdit={setEdit} setOpen={setOpen} />)} 
             </tbody>
         </table>
+        <EditModal {...{open, setOpen, edit}} />
+        </>
     )
 }
 

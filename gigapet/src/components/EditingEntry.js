@@ -4,6 +4,8 @@ export function EditingEntry(props) {
 
     function changeButtonHandler(e) {
         // trigger edit modal
+        props.setEdit(props.meal)
+        props.setOpen(true)
     }
 
     function deleteButtonHandler(e) {
@@ -14,7 +16,7 @@ export function EditingEntry(props) {
         <tr>
             <td>{props.meal.time}</td>
             <td>{props.meal.portionSize}</td>
-            <td>Change</td>
+            <td onClick={changeButtonHandler}>Change</td>
             <td>Delete</td>
         </tr>
     )
