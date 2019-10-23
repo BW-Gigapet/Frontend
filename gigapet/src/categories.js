@@ -1,9 +1,9 @@
 export const categories = [
-    'Vegetable',
-    'Fruit',
+    'Vegetables',
+    'Fruits',
     'Whole Grains',
     'Protein',
-    'Fats & Oils',
+    'Fats and Oils',
     'Sugars'
 ]
 

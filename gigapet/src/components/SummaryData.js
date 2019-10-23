@@ -1,19 +1,19 @@
 import React from 'react'
 
-export function SummaryData(props) {
+export function SummaryData({daily, weekly, monthly}) {
     return (
         <div>
             <div>
                 <p>Daily Average</p>
-                <p>{/* data */}%</p>
+                <p>{daily}</p>
             </div>
             <div>
                 <p>Weekly Average</p>
-                <p>{/* data */}%</p>
+                <p>{weekly}</p>
             </div>
             <div>
                 <p>Monthly Average</p>
-                <p>{/* data */}%</p>
+                <p>{monthly}</p>
             </div>
         </div>
     )
