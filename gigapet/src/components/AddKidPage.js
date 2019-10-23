@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
-import { Link } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import * as Yup from "yup";
 import axios from 'axios';
-import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer } from "./FormStyles";
+import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer, ArrowButton } from "./FormStyles";
 
 const AddKidForm = ({ errors, touched, status, props }) => {
 
@@ -15,20 +15,18 @@ const AddKidForm = ({ errors, touched, status, props }) => {
     }
   }, [status])
 
-  //  create proper functionality for back button
-    
-  //   const routeToHome = event => {
-  //       props.history.push('/kidsprofilesetup');
-  //     };
+  let history = useHistory();
+
+  const handleClick = () => {
+  history.push("/kidsprofilesetup")
+  };
   
   return (
     <div className="addKidForm">
       <div className="arrowButtonContainer">
-        <Link to="/kidsprofilesetup">{/*is Link needed?*/}
-          <button className="arrowBackButton">
-            <img  /*onClick={() => routeToHome()*/ className="ButtonImage" src={ require('../assets/BackArrow.png')} alt="arrowIcon" />
-          </button>
-        </Link>
+          <ArrowButton onClick={handleClick} className="arrowBackButton">
+            <img className="ButtonImage" src={ require('../assets/BackArrow.png')} alt="arrowIcon" />
+          </ArrowButton>
       </div>
       <Form >
         <FormTitle>Sign Up</FormTitle>
@@ -45,9 +43,6 @@ const AddKidForm = ({ errors, touched, status, props }) => {
         </FieldContainer>
         <FormButtonContainer className="formButtonContainer">
             <LinkButtonDefault type="submit">Continue</LinkButtonDefault>
-        </FormButtonContainer>
-        <FormButtonContainer className="formButtonContainer">
-            <LinkButtonDefault type="button">Skip</LinkButtonDefault>
         </FormButtonContainer>
         </Form>
         <AnimalsImageContainer className="animalsImageContainer">
@@ -83,7 +78,7 @@ const FormikSignUpForm = withFormik({
             .then(response => {
               setStatus(response.data);
               console.log(response);
-              props.history.push('/');
+              props.history.push('/successaddkid');
             })
             .catch(error => console.log(error.response))
         },   

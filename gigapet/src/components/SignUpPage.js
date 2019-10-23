@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from 'react-router-dom';
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from 'axios';
@@ -100,12 +101,12 @@ handleSubmit(values, {props, setStatus} ) {
   console.log('values', values);
   axios
     .post("https://bw-gigapet-ft.herokuapp.com/api/register", values)
-    .then(response => {
-      setStatus(response.data);
-      console.log(response)
+    .then(res => {
+      setStatus(res.data);
+      console.log('Response from POST register', res)
       props.history.push('/kidsprofilesetup');
     })
-    .catch(error => console.log(error.response))
+    .catch(error => console.log(error.res))
 },
 
 //======END POST REQUEST==========

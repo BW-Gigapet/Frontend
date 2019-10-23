@@ -8,6 +8,7 @@ import SignUpPage from './components/SignUpPage';
 import LogInPage from './components/LogInPage';
 import KidsProfileSetup from './components/KidsProfileSetup';
 import AddKidPage from './components/AddKidPage';
+import SuccessAddKid from './components/SuccessAddKid'
 // import AddFoodLaunch from './components/AddFoodLaunch';
 import Overlay from './components/Overlay';
 import EditModal from './components/EditModal';
@@ -15,20 +16,22 @@ import Avatar from './components/Avatar';
 import Dashboard from './components/Dashboard';
 // import DailyProgressSummary from './components/DailyProgressSummary';
 // import AddFoodLaunch from './components/AddFoodLaunch';
-import Editing from './components/Editing';
 
 
 function App() {
   return (
     <div className="App">
+
       {/* <Route path='/' component={Navigation} /> */}
+      
       <Navigation />
       <Route exact path="/" component={WelcomePage} />
       <Route exact path="/signup" component={SignUpPage} />
       <Route exact path="/login" component={LogInPage} />
       <Route exact path="/home" component={Dashboard} />
-      <Route exact path ="/kidsprofilesetup" component={KidsProfileSetup} />
-      <Route exact path ="/addkidpage" component={AddKidPage} />
+      <Route exact path="/kidsprofilesetup" component={KidsProfileSetup} />
+      <Route exact path="/addkidpage" component={AddKidPage} />
+      <Route exact path="/successaddkid" component={SuccessAddKid} />
 
       {/* <AddFoodLaunch /> */}
 

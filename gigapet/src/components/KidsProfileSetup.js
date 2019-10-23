@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 import DefaultButton from './DefaultButton';
+import { ArrowButton } from './FormStyles';
 
 const PageContainer = styled.section`
   background: #f6f6f6;
@@ -28,31 +29,27 @@ const AnimalsImageContainer = styled.div`
 margin: 51px;
 `;
 
-export default function KidsProfileSetup(props) {
+export default function KidsProfileSetup() {
 
-    // create proper functionality for back button
+  let history = useHistory();
 
-    // const routeToHome = event => {
-    //     props.history.push('/signup');
-    //   };
+  const handleClick = () => {
+    history.push("/signup")
+  };
 
     return (
 
       <PageContainer className="kidsProfileSetup">
         <div className="contentContainer">
-            <div className="arrowButtonContainer">
-                <Link to="/signup">{/*is Link needed?*/}
-                    <button className="arrowBackButton">
-                        <img  /*onClick={() => routeToHome()*/ className="ButtonImage" src={ require('../assets/BackArrow.png')} alt="arrowIcon" />
-                    </button>
-                </Link>
-            </div>
-            <SetUpQuestion>Do you want to begin setting up your kids profile?</SetUpQuestion>
-            <p>You can always add them later but we recommend getting started!</p>
-            <div className="buttonsContainer">
-                <DefaultButton label={"Yes"} link={"/addkidpage"} />{/* add correct links, history needed? */}
-                <DefaultButton label ={"Skip"} link={"/"} />{/* add correct links, history needed? */}
-            </div>
+          <div className="arrowButtonContainer">
+            <ArrowButton onClick={handleClick} className="arrowBackButton">
+              <img className="ButtonImage" src={ require('../assets/BackArrow.png')} alt="arrowIcon" />
+            </ArrowButton>
+          </div>
+          <SetUpQuestion>Do you want to begin setting up your kids profile?</SetUpQuestion>
+          <p>You can always add them later but we recommend getting started!</p>
+          <DefaultButton label={"Yes"} link={"/addkidpage"} />{/* add correct links, history needed? */}
+          <DefaultButton label={"Skip"} link={"/login"} />{/* add correct links, history needed? */}
         </div>
         <AnimalsImageContainer className="animalsImageContainer">
         <img

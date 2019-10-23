@@ -32,7 +32,7 @@ margin: 51px;
 `;
 
 export default function WelcomePage() {
-
+    
     return (
       <WelcomePageContainer className="welcome-page">
            <WelcomeTitle>Welcome to Gigapet</WelcomeTitle>
