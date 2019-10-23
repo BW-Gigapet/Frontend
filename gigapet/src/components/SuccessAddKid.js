@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom'
 
-import DefaultButton from './DefaultButton';
+import { DefaultButton } from './FormButton';
 import { ArrowButton } from './FormStyles';
 
 const PageContainer = styled.section`

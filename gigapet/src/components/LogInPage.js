@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from 'react-router-dom';
 import { withFormik, Form } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer } from "./FormStyles";
+import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer, ArrowButton } from "./FormStyles";
 import { connect } from 'react-redux';
 import { getLoggedInUser } from '../actions';
 
@@ -19,8 +20,19 @@ const LogInForm = ({ errors, touched, status, values }) => {
     }
   }, [status])
 
+  let history = useHistory();
+
+  const handleClick = () => {
+  history.push("/")
+  };
+
   return (
     <div className="logInForm">
+      <div className="arrowButtonContainer">
+            <ArrowButton onClick={handleClick} className="arrowBackButton">
+              <img className="ButtonImage" src={ require('../assets/BackArrow.png')} alt="arrowIcon" />
+            </ArrowButton>
+      </div>
       <Form >
         <FormTitle>Log In</FormTitle>
         <FieldContainer className="emailContainer">

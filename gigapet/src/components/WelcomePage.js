@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import DefaultButton from './DefaultButton';
+import { DefaultButton, GhostButton } from './FormButton';
 
 const WelcomePageContainer = styled.section`
   background: #f6f6f6;
@@ -45,7 +45,7 @@ console.log("Welcome page props", props)
         </BunnyImageContainer>
         <ButtonsContainer className="buttonsContainer">
             <DefaultButton link={"/signup"} label={"Sign Up"} />
-            <DefaultButton link={"/login"} label={"Log In"} />   
+            <GhostButton link={"/login"} label={"Log In"} />   
         </ButtonsContainer>
         <AnimalsImageContainer className="animalsImageContainer">
         <img

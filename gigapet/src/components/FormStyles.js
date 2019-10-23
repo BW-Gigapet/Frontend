@@ -67,18 +67,23 @@ font-size: 18px;
 line-height: 24px;
 
 &:active {
-    background: white;
-    color: #247CAD;
-    border: 1px solid #247CAD;
+    transform: scale(1.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 &:hover {
-    background: white;
-    color: #247CAD;
-    border: 1px solid #247CAD;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 `;
+
+export const LinkButtonGhost = styled(LinkButtonDefault)`
+background: white;
+color: #247CAD;
+border: 1px solid #247CAD;
+`;
+
 
 export const AnimalsImageContainer = styled.div`
 margin: 51px;

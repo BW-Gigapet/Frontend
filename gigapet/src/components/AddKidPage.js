@@ -29,13 +29,15 @@ const AddKidForm = ({ errors, touched, status }) => {
 
   return (
     <div className="addKidForm">
-      <div className="arrowButtonContainer">
+      <Form >
+        <div className="arrowButtonContainer">
+          <div className="TopContent">
           <ArrowButton onClick={handleClick} className="arrowBackButton">
             <img className="ButtonImage" src={ require('../assets/BackArrow.png')} alt="arrowIcon" />
           </ArrowButton>
-      </div>
-      <Form >
+          </div>
         <FormTitle>Sign Up</FormTitle>
+        </div>
         <FieldContainer className="nameContainer">
         {touched.name && errors.name && <p className="warning">{errors.name}</p>}
             <div className="name">
