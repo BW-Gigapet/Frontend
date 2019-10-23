@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { withFormik, Form, Field } from "formik";
+import { withFormik, Form } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer } from "./FormStyles";
 
 const LogInForm = ({ errors, touched, status, values }) => {
 
-  //======SET STATE OF DATA TO USE IN POSTING/GETTING (see POST code below)===========
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     if (status) {
     setUsers([...users, status]);
     }
-  }, [status])
-  //======END SET STATE OF DATA TO USE IN POSTING/GETTING===========
+  }, [status])=
 
   return (
     <div className="logInForm">
@@ -66,7 +64,6 @@ mapPropsToValues({ email, password }) {
     };
 },
 
-//======VALIDATION SCHEMA==========
 validationSchema: Yup.object().shape({
     email: Yup.string()
         .email("Email not valid.")
@@ -74,9 +71,6 @@ validationSchema: Yup.object().shape({
     password: Yup.string()
         .required("Password is required!"),        
 }),
-//======END VALIDATION SCHEMA==========
-
-//======POST REQUEST (see how status is set above)==========
 
 handleSubmit(values, {setStatus} ) {
   console.log('values', values);
@@ -89,8 +83,6 @@ handleSubmit(values, {setStatus} ) {
     })
     .catch(error => console.log(error.response))
 },
-
-//======END POST REQUEST==========
 
 })(LogInForm);
 

@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import axios from 'axios';
 import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer, ArrowButton } from "./FormStyles";
 
-const AddKidForm = ({ errors, touched, status, props }) => {
+const AddKidForm = ({ errors, touched, status }) => {
 
   const [kid, setKid] = useState([]);
 
@@ -20,8 +20,6 @@ const AddKidForm = ({ errors, touched, status, props }) => {
   const handleClick = () => {
   history.push("/kidsprofilesetup")
   };
-
-  const id = props.match.params.id
 
   return (
     <div className="addKidForm">

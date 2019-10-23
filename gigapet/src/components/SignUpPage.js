@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from 'react-router-dom';
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from 'axios';
@@ -7,7 +6,6 @@ import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkBut
 
 const SignUpForm = ({ errors, touched, status }) => {
 
-  //======SET STATE OF DATA TO USE IN POSTING/GETTING (see POST code below)===========
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -15,7 +13,6 @@ const SignUpForm = ({ errors, touched, status }) => {
     setUsers([...users, status]);
     }
   }, [status])
-  //======END SET STATE OF DATA TO USE IN POSTING/GETTING===========
 
   return (
     <div className="signUpForm">
@@ -71,7 +68,6 @@ const SignUpForm = ({ errors, touched, status }) => {
 
 const FormikSignUpForm = withFormik({
 
-//=============Initializing Form's Empty State==================
 mapPropsToValues({ name, email, password }) {
     return {
         name: name || "",
@@ -79,9 +75,7 @@ mapPropsToValues({ name, email, password }) {
         password: password || "",
     };
 },
-//=============End Initializing Form's Empty State==================
 
-//======VALIDATION SCHEMA==========
 validationSchema: Yup.object().shape({
     name: Yup.string()
         .min(2, "You must enter 2 or more letters!")
@@ -93,9 +87,6 @@ validationSchema: Yup.object().shape({
         .min(6, "Password must be 6 characters or longer!")
         .required("Password is required!"),        
 }),
-//======END VALIDATION SCHEMA==========
-
-//======POST REQUEST (see how status is set above)==========
 
 handleSubmit(values, {props, setStatus} ) {
   console.log('values', values);
@@ -108,8 +99,6 @@ handleSubmit(values, {props, setStatus} ) {
     })
     .catch(error => console.log(error.res))
 },
-
-//======END POST REQUEST==========
 
 })(SignUpForm);
 
