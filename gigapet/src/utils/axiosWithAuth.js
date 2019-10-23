@@ -5,7 +5,7 @@ export const axiosWithAuth = () => {
     return axios.create({
         baseURL: 'https://bw-gigapet-ft.herokuapp.com',
         headers: {
-            Authentication: localStorage.getItem('token')
+            Authorization: localStorage.getItem('token')
         }
         
     })

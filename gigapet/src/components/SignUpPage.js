@@ -3,11 +3,15 @@ import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from 'axios';
 import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer } from "./FormStyles";
+import { connect } from 'react-redux';
+import { getLoggedInUser } from '../actions';
+
 
 const SignUpForm = ({ errors, touched, status }) => {
-
+  console.log('props in Login', errors, touched, status)
   //======SET STATE OF DATA TO USE IN POSTING/GETTING (see POST code below)===========
   const [users, setUsers] = useState([]);
+  console.log('state in Signup Form', users)
 
   useEffect(() => {
     if (status) {
@@ -21,13 +25,13 @@ const SignUpForm = ({ errors, touched, status }) => {
       <Form >
         <FormTitle>Sign Up</FormTitle>
         <FieldContainer className="usernameContainer">
-        {touched.username && errors.username && <p className="warning">{errors.username}</p>}
+        {touched.name && errors.name && <p className="warning">{errors.name}</p>}
             <div className="username">
               <FieldLabel htmlFor="username">
                 <ActualLabel>User Name</ActualLabel>
               </FieldLabel>
               <div className="usernameInputContainer">
-                <InputField type="text" name="username" placeholder="User Name" size="45"/>
+                <InputField type="text" name="name" placeholder="User Name" size="45"/>
               </div>
             </div>
         </FieldContainer>
@@ -71,9 +75,9 @@ const SignUpForm = ({ errors, touched, status }) => {
 const FormikSignUpForm = withFormik({
 
 //=============Initializing Form's Empty State==================
-mapPropsToValues({ username, email, password }) {
+mapPropsToValues({ name, email, password }) {
     return {
-        username: username || "",
+        name: name || "",
         email: email || "",
         password: password || "",
     };
@@ -82,7 +86,7 @@ mapPropsToValues({ username, email, password }) {
 
 //======VALIDATION SCHEMA==========
 validationSchema: Yup.object().shape({
-    username: Yup.string()
+    name: Yup.string()
         .min(2, "You must enter 2 or more letters!")
         .required("Name is required!"),
     email: Yup.string()
@@ -100,16 +104,28 @@ handleSubmit(values, {props, setStatus} ) {
   console.log('values', values);
   axios
     .post("https://bw-gigapet-ft.herokuapp.com/api/register", values)
-    .then(response => {
-      setStatus(response.data);
-      console.log(response)
+    .then(res => {
+      setStatus(res.data);
+      console.log('Response from POST register', res)
+      localStorage.setItem('token', res.data.token)
+      props.getLoggedInUser();
       props.history.push('/kidsprofilesetup');
     })
-    .catch(error => console.log(error.response))
+    .catch(error => console.log(error.res))
 },
 
 //======END POST REQUEST==========
 
 })(SignUpForm);
 
-export default FormikSignUpForm;
+const mapStateToProps = state => {
+  console.log('mapsStateToProps state in SignUp', state)
+
+  return {
+    loggedInUser: state.loggedInUser,
+    isLoading: state.isLoading,
+    error: state.error
+  }
+}
+
+export default connect(mapStateToProps, { getLoggedInUser })(FormikSignUpForm);

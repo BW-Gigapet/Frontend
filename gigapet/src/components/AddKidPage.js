@@ -2,15 +2,22 @@ import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
 import { Link } from 'react-router-dom';
 import * as Yup from "yup";
-import axios from 'axios';
+// import axios from 'axios';
 import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer } from "./FormStyles";
+import axiosWithAuth from "../utils/axiosWithAuth";
+import { connect } from 'react-redux';
+import { getLoggedInUser } from '../actions';
 
 const AddKidForm = ({ errors, touched, status, props }) => {
+  console.log('AddKidForm props', errors, touched, status)
 
   //======SET STATE OF DATA TO USE IN POSTING/GETTING (see POST code below)===========
   const [kid, setKid] = useState([]);
+  //const [loggedInUser, setLoggedInUser] = useState({})
+  console.log('AddKid state', kid)
 
   useEffect(() => {
+
     if (status) {
     setKid([...kid, status]);
     }
@@ -36,13 +43,13 @@ const AddKidForm = ({ errors, touched, status, props }) => {
       <Form >
         <FormTitle>Sign Up</FormTitle>
         <FieldContainer className="usernameContainer">
-        {touched.username && errors.username && <p className="warning">{errors.username}</p>}
+        {touched.name && errors.name && <p className="warning">{errors.name}</p>}
             <div className="username">
-              <FieldLabel htmlFor="username">
+              <FieldLabel htmlFor="name">
                 <ActualLabel>User Name</ActualLabel>
               </FieldLabel>
               <div className="usernameInputContainer">
-                <InputField type="text" name="username" placeholder="User Name" size="45"/>
+                <InputField type="text" name="name" placeholder="User Name" size="45"/>
               </div>
             </div>
         </FieldContainer>
@@ -67,16 +74,16 @@ const AddKidForm = ({ errors, touched, status, props }) => {
 const FormikSignUpForm = withFormik({
 
 //=============Initializing Form's Empty State==================
-    mapPropsToValues({ username }) {
+    mapPropsToValues({ name }) {
         return {
-            username: username || "",
+            name: name || "",
         };
     },
 //=============End Initializing Form's Empty State==================
     
 //======VALIDATION SCHEMA==========
     validationSchema: Yup.object().shape({
-        username: Yup.string()
+        name: Yup.string()
             .min(2, "You must enter 2 or more letters!")
             .required("User Name is required!"),
         }),
@@ -85,19 +92,31 @@ const FormikSignUpForm = withFormik({
 //======POST REQUEST (see how status is set above)==========
         
         handleSubmit(values, {props, setStatus} ) {
-          console.log('values', values);
-          axios
-            .post(`https://bw-gigapet-ft.herokuapp.com/api/users/{id}/children`, values) // add back $ before {id}
-            //add correct API & anything else needed for functionality
-            .then(response => {
-              setStatus(response.data);
-              console.log(response);
-              props.history.push('/');
-            })
-            .catch(error => console.log(error.response))
+          console.log('values and props', values, props);
+              axiosWithAuth()
+                .post(`/api/users/${props.loggedInUser.id}/children`, values) 
+                
+                .then(res => {
+                  setStatus(res.data);
+                  console.log('response from POST for adding Kid', res);
+                  props.getLoggedInUser();
+                  props.history.push('/dashboard');
+                })
+                .catch(error => console.log(error.res))
         },
 //======END POST REQUEST==========
         
     })(AddKidForm);
+
+    const mapStateToProps = state => {
+      console.log('mapsStateToProps state in Add Kid', state)
+
+      return {
+        loggedInUser: state.loggedInUser,
+        mealData: state.mealData,
+        isLoading: state.isLoading,
+        error: state.error
+      }
+    }
         
-  export default FormikSignUpForm;
+  export default connect(mapStateToProps, { getLoggedInUser })(FormikSignUpForm);
