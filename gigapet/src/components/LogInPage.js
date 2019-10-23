@@ -12,7 +12,7 @@ const LogInForm = ({ errors, touched, status, values }) => {
     if (status) {
     setUsers([...users, status]);
     }
-  }, [status])=
+  }, [status])
 
   return (
     <div className="logInForm">
