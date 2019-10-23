@@ -32,7 +32,7 @@ const AddFoodLaunch = () => {
                     setOpen(true)
                 }}>
                     <VegButton>
-                        <VegImage src={ vegImage } alt='vegetable icon' />
+                        <img src={ vegImage } alt='vegetable icon' />
                     </VegButton>
                     <p>Vegetable</p>
                 </IconContainer>
@@ -40,45 +40,45 @@ const AddFoodLaunch = () => {
                     setCategory('Fruits')
                     setOpen(true)
                 }}>>
-                    <Buttons>
+                    <FruitButton>
                         <img src={ fruitImage } alt='fruit icon' />
-                    </Buttons>
+                    </FruitButton>
                     <p>Fruits</p>
                 </IconContainer>
                 <IconContainer onClick={()=>{
                     setCategory('Whole Grains')
                     setOpen(true)
                 }}>>
-                    <Buttons>
+                    <GrainButton>
                         <img src={ grainImage } alt='grain icon' />
-                    </Buttons>
+                    </GrainButton>
                     <p>Whole Grains</p>
                 </IconContainer>
                 <IconContainer onClick={()=>{
                     setCategory('Protein')
                     setOpen(true)
                 }}>>
-                    <Buttons>
+                    <ProteinButton>
                         <img src={ proteinImage } alt='protein icon' />
-                    </Buttons>
+                    </ProteinButton>
                     <p>Protein</p>
                 </IconContainer>
                 <IconContainer onClick={()=>{
                     setCategory('Fats and Oils')
                     setOpen(true)
                 }}>>
-                    <Buttons>
+                    <FatsButton>
                         <img src={ fatsImage } alt='fats and oils icon' />
-                    </Buttons>
+                    </FatsButton>
                     <p>Fats and Oils</p>
                 </IconContainer>
                 <IconContainer onClick={()=>{
                     setCategory('Sugars')
                     setOpen(true)
                 }}>>
-                <Buttons>
+                <SugarsButton>
                     <img src={ sugarsImage } alt='sugars icon' />
-                </Buttons>
+                </SugarsButton>
                 <p>Sugars</p>
                 </IconContainer>
             </Icons>
@@ -111,16 +111,17 @@ const AddButton = styled.button`
     border-radius: 50%;
     font-size: 2rem;
     border: none;
+    // margin-right: 25%;
 `;
 
-const Buttons = styled.button`
-    width: 70px;
-    height: 70px;
-    text-decoration: none;
-    border: none;
-    padding: 0;
-    background-color: #EBF9EF;
-`;
+// const Buttons = styled.button`
+//     width: 70px;
+//     height: 70px;
+//     text-decoration: none;
+//     border: none;
+//     padding: 0;
+//     background-color: #EBF9EF;
+// `;
 
 const VegButton = styled.button`
     width: 70px;
@@ -131,7 +132,50 @@ const VegButton = styled.button`
     background-color: #EBF9EF;
 `;
 
-const VegImage = styled.img`
-    width: 50px;
-    height: 50px;
+// const VegImage = styled.img`
+//     // width: 50px;
+//     // height: 50px;
+// `;
+
+const FruitButton = styled.button`
+width: 70px;
+height: 70px;
+text-decoration: none;
+border: none;
+padding: 0;
+background-color: #F7F5DE;
+`;
+
+const GrainButton = styled.button`
+width: 70px;
+height: 70px;
+text-decoration: none;
+border: none;
+padding: 0;
+background-color: #FDEDE7;
+`;
+
+const ProteinButton = styled.button`
+width: 70px;
+height: 70px;
+text-decoration: none;
+border: none;
+padding: 0;
+background-color: #EAF5FB;
+`;
+const FatsButton = styled.button`
+width: 70px;
+height: 70px;
+text-decoration: none;
+border: none;
+padding: 0;
+background-color: #EFEAFA;
+`;
+const SugarsButton = styled.button`
+width: 70px;
+height: 70px;
+text-decoration: none;
+border: none;
+padding: 0;
+background-color: #FFEBF6;
 `;
