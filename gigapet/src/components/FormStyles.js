@@ -83,3 +83,11 @@ line-height: 24px;
 export const AnimalsImageContainer = styled.div`
 margin: 51px;
 `;
+
+export const ArrowButton = styled.button`
+font-size: 100%;
+font-family: inherit;
+border: 0;
+padding: 0;
+background: #f6f6f6;
+`;

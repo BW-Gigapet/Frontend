@@ -18,19 +18,18 @@ const SignUpForm = ({ errors, touched, status }) => {
     setUsers([...users, status]);
     }
   }, [status])
-  //======END SET STATE OF DATA TO USE IN POSTING/GETTING===========
 
   return (
     <div className="signUpForm">
       <Form >
         <FormTitle>Sign Up</FormTitle>
-        <FieldContainer className="usernameContainer">
+        <FieldContainer className="nameContainer">
         {touched.name && errors.name && <p className="warning">{errors.name}</p>}
-            <div className="username">
-              <FieldLabel htmlFor="username">
+            <div className="name">
+              <FieldLabel htmlFor="name">
                 <ActualLabel>User Name</ActualLabel>
               </FieldLabel>
-              <div className="usernameInputContainer">
+              <div className="nameInputContainer">
                 <InputField type="text" name="name" placeholder="User Name" size="45"/>
               </div>
             </div>
@@ -74,7 +73,6 @@ const SignUpForm = ({ errors, touched, status }) => {
 
 const FormikSignUpForm = withFormik({
 
-//=============Initializing Form's Empty State==================
 mapPropsToValues({ name, email, password }) {
     return {
         name: name || "",
@@ -82,9 +80,7 @@ mapPropsToValues({ name, email, password }) {
         password: password || "",
     };
 },
-//=============End Initializing Form's Empty State==================
 
-//======VALIDATION SCHEMA==========
 validationSchema: Yup.object().shape({
     name: Yup.string()
         .min(2, "You must enter 2 or more letters!")
@@ -96,9 +92,6 @@ validationSchema: Yup.object().shape({
         .min(6, "Password must be 6 characters or longer!")
         .required("Password is required!"),        
 }),
-//======END VALIDATION SCHEMA==========
-
-//======POST REQUEST (see how status is set above)==========
 
 handleSubmit(values, {props, setStatus} ) {
   console.log('values', values);
@@ -113,8 +106,6 @@ handleSubmit(values, {props, setStatus} ) {
     })
     .catch(error => console.log(error.res))
 },
-
-//======END POST REQUEST==========
 
 })(SignUpForm);
 

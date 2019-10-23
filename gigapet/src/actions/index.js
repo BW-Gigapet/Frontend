@@ -12,7 +12,7 @@ export const fetchMeals = (childId) => dispatch => {
     dispatch({ type: FETCH_MEALS_START })
     if (childId ) {
     axiosWithAuth()
-    .get(`/api/child/${childId}/meals?filter=yesterday`)
+    .get(`/api/child/${childId}/meals?filter=today`)
     .then(res => {
         console.log('response from GET meals', res)
         dispatch({ type: FETCH_MEALS_SUCCESS, payload: res.data })

@@ -1,5 +1,6 @@
-import React from 'react'
-import axios from 'axios'
+import React from 'react';
+import axios from 'axios';
+
 
 import { SelectCategory, CategoryBanner, EditingTable } from './index'
 
@@ -10,20 +11,19 @@ export class Editing extends React.Component {
             category: 'Vegetable',
             meals: [],
             error: '',
-        }
-        
+        }  
     }
 
     componentDidMount() {
-        axios.get('https://bw-gigapet-ft.herokuapp.com/api/meals/' /*get id from state*/
+        axios.get('https://bw-gigapet-ft.herokuapp.com/api/meals/') /*get id from state*/
               .then(res => { 
-                  console.log(res.data.meals);
+                  console.log(res.data);
                   this.setState({meals: res.data.meals})
               })
               .catch((error) => {
                   console.log(error)
-              })
-        )}
+              });
+        }
 
     componentWillUnmount() {
         //cleanup

@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { withFormik, Form, Field } from "formik";
-import { Link } from 'react-router-dom';
+import { withFormik, Form } from "formik";
+import { useHistory } from "react-router-dom";
 import * as Yup from "yup";
 // import axios from 'axios';
-import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer } from "./FormStyles";
+import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer, ArrowButton } from "./FormStyles";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { connect } from 'react-redux';
 import { getLoggedInUser } from '../actions';
 
-const AddKidForm = ({ errors, touched, status, props }) => {
+const AddKidForm = ({ errors, touched, status }) => {
   console.log('AddKidForm props', errors, touched, status)
 
-  //======SET STATE OF DATA TO USE IN POSTING/GETTING (see POST code below)===========
   const [kid, setKid] = useState([]);
   //const [loggedInUser, setLoggedInUser] = useState({})
   console.log('AddKid state', kid)
@@ -23,41 +22,34 @@ const AddKidForm = ({ errors, touched, status, props }) => {
     }
   }, [status])
 
-  //======END SET STATE OF DATA TO USE IN POSTING/GETTING===========
+  let history = useHistory();
 
-  //  create proper functionality for back button
-    
-  //   const routeToHome = event => {
-  //       props.history.push('/kidsprofilesetup');
-  //     };
-  
+  const handleClick = () => {
+  history.push("/kidsprofilesetup")
+  };
+
   return (
     <div className="addKidForm">
       <div className="arrowButtonContainer">
-        <Link to="/kidsprofilesetup">{/*is Link needed?*/}
-          <button className="arrowBackButton">
-            <img  /*onClick={() => routeToHome()*/ className="ButtonImage" src={ require('../assets/BackArrow.png')} alt="arrowIcon" />
-          </button>
-        </Link>
+          <ArrowButton onClick={handleClick} className="arrowBackButton">
+            <img className="ButtonImage" src={ require('../assets/BackArrow.png')} alt="arrowIcon" />
+          </ArrowButton>
       </div>
       <Form >
         <FormTitle>Sign Up</FormTitle>
-        <FieldContainer className="usernameContainer">
+        <FieldContainer className="nameContainer">
         {touched.name && errors.name && <p className="warning">{errors.name}</p>}
-            <div className="username">
+            <div className="name">
               <FieldLabel htmlFor="name">
                 <ActualLabel>User Name</ActualLabel>
               </FieldLabel>
-              <div className="usernameInputContainer">
+              <div className="nameInputContainer">
                 <InputField type="text" name="name" placeholder="User Name" size="45"/>
               </div>
             </div>
         </FieldContainer>
         <FormButtonContainer className="formButtonContainer">
             <LinkButtonDefault type="submit">Continue</LinkButtonDefault>
-        </FormButtonContainer>
-        <FormButtonContainer className="formButtonContainer">
-            <LinkButtonDefault type="button">Skip</LinkButtonDefault>
         </FormButtonContainer>
         </Form>
         <AnimalsImageContainer className="animalsImageContainer">
@@ -79,18 +71,14 @@ const FormikSignUpForm = withFormik({
             name: name || "",
         };
     },
-//=============End Initializing Form's Empty State==================
-    
-//======VALIDATION SCHEMA==========
+
     validationSchema: Yup.object().shape({
         name: Yup.string()
             .min(2, "You must enter 2 or more letters!")
             .required("User Name is required!"),
         }),
-//======END VALIDATION SCHEMA==========
-        
-//======POST REQUEST (see how status is set above)==========
-        
+
+
         handleSubmit(values, {props, setStatus} ) {
           console.log('values and props', values, props);
               axiosWithAuth()
@@ -100,9 +88,9 @@ const FormikSignUpForm = withFormik({
                   setStatus(res.data);
                   console.log('response from POST for adding Kid', res);
                   props.getLoggedInUser();
-                  props.history.push('/dashboard');
+                  props.history.push('/successaddkid');
                 })
-                .catch(error => console.log(error.res))
+                .catch(error => console.log(error.response))
         },
 //======END POST REQUEST==========
         
