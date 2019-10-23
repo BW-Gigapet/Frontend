@@ -52,7 +52,7 @@ const DailyProgressSummary = (props) => {
     useEffect(() => {
         if (props.loggedInUser.childAccounts){
             setChild(props.loggedInUser.childAccounts[0])
-            props.fetchMeals(child.id)
+            props.fetchMeals(props.loggedInUser.childAccounts[0].id)
         }
     },[props.loggedInUser])
 
