@@ -39,13 +39,15 @@ const DailyProgressCategory = (props) => {
 
     return (
        
-        <div>
-            <p>{props.category.name}</p>
-            <ProgressBar percentage={percentage} category={props.category}/>
-            <p>{percentage}%</p>
-
-            {/* reduce the daily entries  */}
-        </div>
+        <DayProgContainer className='daily-progress-container'>
+            <div className='category progress-bar'>
+                <h3>{props.category.name}</h3>
+                <ProgressBar percentage={percentage} category={props.category}/>
+            </div>
+           <div className='percent'>
+                <p>{percentage}%</p>
+            </div>
+        </DayProgContainer>
         
     )
 }
@@ -68,3 +70,19 @@ export default connect(mapStateToProps, { fetchMeals })(DailyProgressCategory);
 //     width: ${categoryProgress}%;
 //     height:24px;
 // `;
+
+const DayProgContainer = styled.div`
+    display: flex;
+    // justify-content: 
+    width: 315px;
+    height: 80px;
+    color: #1A051D;
+    h3{
+        font-size: 18px;
+        text-align: left;
+    }
+    p{
+        font-size: 16px;
+        line-height: 20px;
+    }
+`;

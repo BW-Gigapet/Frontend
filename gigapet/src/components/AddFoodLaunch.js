@@ -26,6 +26,7 @@ const AddFoodLaunch = () => {
                     setOpen(true)
                 }}> + </AddButton>
             </div>
+        
             <Icons className='add-food-icons'>
                 <IconContainer onClick={()=>{
                     setCategory('Vegetable')
@@ -39,7 +40,7 @@ const AddFoodLaunch = () => {
                 <IconContainer onClick={()=>{
                     setCategory('Fruits')
                     setOpen(true)
-                }}>>
+                }}>
                     <FruitButton>
                         <img src={ fruitImage } alt='fruit icon' />
                     </FruitButton>
@@ -48,7 +49,7 @@ const AddFoodLaunch = () => {
                 <IconContainer onClick={()=>{
                     setCategory('Whole Grains')
                     setOpen(true)
-                }}>>
+                }}>
                     <GrainButton>
                         <img src={ grainImage } alt='grain icon' />
                     </GrainButton>
@@ -57,7 +58,7 @@ const AddFoodLaunch = () => {
                 <IconContainer onClick={()=>{
                     setCategory('Protein')
                     setOpen(true)
-                }}>>
+                }}>
                     <ProteinButton>
                         <img src={ proteinImage } alt='protein icon' />
                     </ProteinButton>
@@ -66,7 +67,7 @@ const AddFoodLaunch = () => {
                 <IconContainer onClick={()=>{
                     setCategory('Fats and Oils')
                     setOpen(true)
-                }}>>
+                }}>
                     <FatsButton>
                         <img src={ fatsImage } alt='fats and oils icon' />
                     </FatsButton>
@@ -75,7 +76,7 @@ const AddFoodLaunch = () => {
                 <IconContainer onClick={()=>{
                     setCategory('Sugars')
                     setOpen(true)
-                }}>>
+                }}>
                 <SugarsButton>
                     <img src={ sugarsImage } alt='sugars icon' />
                 </SugarsButton>
@@ -90,17 +91,23 @@ const AddFoodLaunch = () => {
 export default AddFoodLaunch;
 
 const Icons = styled.div`
-    width: 500px;
-    height: 800px;
+    width: 275px;
+    // height: 250px;
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: space-between;
+    // margin-left: 5%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin: 30px;
+    // justify-content: center;
 `;
 
 const IconContainer = styled.div`
     display: flex;
     flex-direction: column;
-    font-size: .5rem;
+    font-size: 10px;
 `;
 
 const AddButton = styled.button`
@@ -111,17 +118,7 @@ const AddButton = styled.button`
     border-radius: 50%;
     font-size: 2rem;
     border: none;
-    // margin-right: 25%;
 `;
-
-// const Buttons = styled.button`
-//     width: 70px;
-//     height: 70px;
-//     text-decoration: none;
-//     border: none;
-//     padding: 0;
-//     background-color: #EBF9EF;
-// `;
 
 const VegButton = styled.button`
     width: 70px;
@@ -132,50 +129,45 @@ const VegButton = styled.button`
     background-color: #EBF9EF;
 `;
 
-// const VegImage = styled.img`
-//     // width: 50px;
-//     // height: 50px;
-// `;
-
 const FruitButton = styled.button`
-width: 70px;
-height: 70px;
-text-decoration: none;
-border: none;
-padding: 0;
-background-color: #F7F5DE;
+    width: 70px;
+    height: 70px;
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    background-color: #F7F5DE;
 `;
 
 const GrainButton = styled.button`
-width: 70px;
-height: 70px;
-text-decoration: none;
-border: none;
-padding: 0;
-background-color: #FDEDE7;
+    width: 70px;
+    height: 70px;
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    background-color: #FDEDE7;
 `;
 
 const ProteinButton = styled.button`
-width: 70px;
-height: 70px;
-text-decoration: none;
-border: none;
-padding: 0;
-background-color: #EAF5FB;
+    width: 70px;
+    height: 70px;
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    background-color: #EAF5FB;
 `;
 const FatsButton = styled.button`
-width: 70px;
-height: 70px;
-text-decoration: none;
-border: none;
-padding: 0;
-background-color: #EFEAFA;
+    width: 70px;
+    height: 70px;
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    background-color: #EFEAFA;
 `;
 const SugarsButton = styled.button`
-width: 70px;
-height: 70px;
-text-decoration: none;
-border: none;
-padding: 0;
-background-color: #FFEBF6;
+    width: 70px;
+    height: 70px;
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    background-color: #FFEBF6;
 `;
