@@ -25,8 +25,6 @@ export default SummaryData
 const AverageContainer = styled.div`
     display: flex;
     justify-content: space-between;
-    // width: 315px;
-    // height: 100px;
 `;
 
 const AverageTitle = styled.p`
