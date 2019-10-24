@@ -69,8 +69,13 @@ export default function SuccessAddKid() {
           </ArrowButtonContainer>
           <SuccessTitle>Alright!</SuccessTitle>
           <SuccessMessage>Download the Gigapet app on your kid's device so they can see how their Gigapet is doing!</SuccessMessage>
+<<<<<<< HEAD
           <DefaultButton label={"Start Logging"} link={"/home"} />
         </ContentContainer>
+=======
+          <DefaultButton label={"Start Logging"} link={"/dashboard"} />
+        </div>
+>>>>>>> origin/master
         <AnimalsImageContainer className="animalsImageContainer">
         <img
             className="animals"

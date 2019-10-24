@@ -102,8 +102,7 @@ handleSubmit(values, {props, setStatus} ) {
       setStatus(res.data);
       console.log('Response from POST register', res)
       localStorage.setItem('token', res.data.token)
-      props.getLoggedInUser();
-      props.history.push('/kidsprofilesetup');
+      props.getLoggedInUser(() => props.history.push('/kidsprofilesetup'));
     })
     .catch(error => console.log(error.res))
 },

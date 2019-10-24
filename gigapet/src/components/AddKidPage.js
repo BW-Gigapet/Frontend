@@ -89,8 +89,8 @@ const FormikSignUpForm = withFormik({
                 .then(res => {
                   setStatus(res.data);
                   console.log('response from POST for adding Kid', res);
-                  props.getLoggedInUser();
-                  props.history.push('/successaddkid');
+                  props.getLoggedInUser(() => props.history.push('/successaddkid'));
+                  
                 })
                 .catch(error => console.log(error.response))
         },

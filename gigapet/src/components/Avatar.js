@@ -37,6 +37,7 @@ const blink = keyframes`50% { opacity: 0.33;}`
 const Container = styled.div`
 position: relative;
 overflow: hidden;
+// width:45%;
 `
 
 const Backgorund = styled.img`

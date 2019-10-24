@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import DailyProgressCategory from './DailyProgressCategory';
 import { connect } from 'react-redux';
 import { fetchMeals } from '../actions';
-import { useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
+import image from '../assets/UserIcon.png';
 
 const categories = [
     {
@@ -46,15 +48,22 @@ const DailyProgressSummary = (props) => {
     console.log('Daily Progress Summary props', props)
     const history = useHistory()
 
+    const [child, setChild] = useState({})
+
     useEffect(() => {
         if (props.loggedInUser.childAccounts){
+            setChild(props.loggedInUser.childAccounts[0])
             props.fetchMeals(props.loggedInUser.childAccounts[0].id)
         }
     },[props.loggedInUser])
 
     return (
-        <div>
-            <button onClick={()=>{history.push('/dashboard/edit')}}>Edit</button>
+        <div className='daily-summary-container'>
+            <UserAndIcon className='user-container'>
+                <h1>{child.name}</h1>
+                <img width='40px' height='40px' src={image} alt='switch child accounts icon' />
+            </UserAndIcon>
+            <EditButton onClick={()=>{history.push('/dashboard/edit')}}>Edit</EditButton>
             {/* map categories */}
             {categories.map(category => (
                 <DailyProgressCategory /*key={}*/ category={category} />
@@ -78,3 +87,19 @@ const mapStateToProps = state => {
   }
 
 export default connect(mapStateToProps, { fetchMeals })(DailyProgressSummary);
+
+
+const EditButton = styled.button`
+    margin-left: 45%;
+    border: none;
+    font size: 1.5rem;
+    background: #f6f6f6;
+    font-weight: bold;
+`;
+
+const UserAndIcon = styled.div` 
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;

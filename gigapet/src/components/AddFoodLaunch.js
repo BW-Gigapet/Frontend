@@ -26,59 +26,60 @@ const AddFoodLaunch = () => {
                     setOpen(true)
                 }}> + </AddButton>
             </div>
+        
             <Icons className='add-food-icons'>
                 <IconContainer onClick={()=>{
                     setCategory('Vegetable')
                     setOpen(true)
                 }}>
                     <VegButton>
-                        <VegImage src={ vegImage } alt='vegetable icon' />
+                        <img src={ vegImage } alt='vegetable icon' />
                     </VegButton>
                     <p>Vegetable</p>
                 </IconContainer>
                 <IconContainer onClick={()=>{
                     setCategory('Fruits')
                     setOpen(true)
-                }}>>
-                    <Buttons>
+                }}>
+                    <FruitButton>
                         <img src={ fruitImage } alt='fruit icon' />
-                    </Buttons>
+                    </FruitButton>
                     <p>Fruits</p>
                 </IconContainer>
                 <IconContainer onClick={()=>{
                     setCategory('Whole Grains')
                     setOpen(true)
-                }}>>
-                    <Buttons>
+                }}>
+                    <GrainButton>
                         <img src={ grainImage } alt='grain icon' />
-                    </Buttons>
+                    </GrainButton>
                     <p>Whole Grains</p>
                 </IconContainer>
                 <IconContainer onClick={()=>{
                     setCategory('Protein')
                     setOpen(true)
-                }}>>
-                    <Buttons>
+                }}>
+                    <ProteinButton>
                         <img src={ proteinImage } alt='protein icon' />
-                    </Buttons>
+                    </ProteinButton>
                     <p>Protein</p>
                 </IconContainer>
                 <IconContainer onClick={()=>{
                     setCategory('Fats and Oils')
                     setOpen(true)
-                }}>>
-                    <Buttons>
+                }}>
+                    <FatsButton>
                         <img src={ fatsImage } alt='fats and oils icon' />
-                    </Buttons>
+                    </FatsButton>
                     <p>Fats and Oils</p>
                 </IconContainer>
                 <IconContainer onClick={()=>{
                     setCategory('Sugars')
                     setOpen(true)
-                }}>>
-                <Buttons>
+                }}>
+                <SugarsButton>
                     <img src={ sugarsImage } alt='sugars icon' />
-                </Buttons>
+                </SugarsButton>
                 <p>Sugars</p>
                 </IconContainer>
             </Icons>
@@ -90,17 +91,23 @@ const AddFoodLaunch = () => {
 export default AddFoodLaunch;
 
 const Icons = styled.div`
-    width: 500px;
-    height: 800px;
+    width: 275px;
+    // height: 250px;
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: space-between;
+    // margin-left: 5%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin: 30px;
+    // justify-content: center;
 `;
 
 const IconContainer = styled.div`
     display: flex;
     flex-direction: column;
-    font-size: .5rem;
+    font-size: 10px;
 `;
 
 const AddButton = styled.button`
@@ -113,15 +120,6 @@ const AddButton = styled.button`
     border: none;
 `;
 
-const Buttons = styled.button`
-    width: 70px;
-    height: 70px;
-    text-decoration: none;
-    border: none;
-    padding: 0;
-    background-color: #EBF9EF;
-`;
-
 const VegButton = styled.button`
     width: 70px;
     height: 70px;
@@ -131,7 +129,45 @@ const VegButton = styled.button`
     background-color: #EBF9EF;
 `;
 
-const VegImage = styled.img`
-    width: 50px;
-    height: 50px;
+const FruitButton = styled.button`
+    width: 70px;
+    height: 70px;
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    background-color: #F7F5DE;
+`;
+
+const GrainButton = styled.button`
+    width: 70px;
+    height: 70px;
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    background-color: #FDEDE7;
+`;
+
+const ProteinButton = styled.button`
+    width: 70px;
+    height: 70px;
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    background-color: #EAF5FB;
+`;
+const FatsButton = styled.button`
+    width: 70px;
+    height: 70px;
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    background-color: #EFEAFA;
+`;
+const SugarsButton = styled.button`
+    width: 70px;
+    height: 70px;
+    text-decoration: none;
+    border: none;
+    padding: 0;
+    background-color: #FFEBF6;
 `;
