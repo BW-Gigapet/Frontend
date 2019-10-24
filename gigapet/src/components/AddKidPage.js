@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { withFormik, Form } from "formik";
 import { useHistory } from "react-router-dom";
 import * as Yup from "yup";
-import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer, ArrowButton } from "./FormStyles";
+import { TopContentContainer, StyledForm, TopContent, ArrowButtonContainer, FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer, ArrowButton } from "./FormStyles";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { connect } from 'react-redux';
 import { getLoggedInUser } from '../actions';
@@ -29,15 +29,17 @@ const AddKidForm = ({ errors, touched, status }) => {
 
   return (
     <div className="addKidForm">
-      <Form >
-        <div className="arrowButtonContainer">
-          <div className="TopContent">
-          <ArrowButton onClick={handleClick} className="arrowBackButton">
-            <img className="ButtonImage" src={ require('../assets/BackArrow.png')} alt="arrowIcon" />
-          </ArrowButton>
-          </div>
-        <FormTitle>Sign Up</FormTitle>
-        </div>
+        <TopContentContainer className="topContentContainer">
+          <TopContent className="topContent">
+            <ArrowButtonContainer className="arrowButtonContainer">
+              <ArrowButton type="button" onClick={handleClick} className="arrowBackButton">
+                <img className="ButtonImage" src={ require('../assets/BackArrow.png')} alt="arrowIcon" />
+              </ArrowButton>
+            </ArrowButtonContainer>
+          <FormTitle>Add Your Kid</FormTitle>
+         </TopContent>
+         </TopContentContainer>
+        <StyledForm >
         <FieldContainer className="nameContainer">
         {touched.name && errors.name && <p className="warning">{errors.name}</p>}
             <div className="name">
@@ -52,7 +54,7 @@ const AddKidForm = ({ errors, touched, status }) => {
         <FormButtonContainer className="formButtonContainer">
             <LinkButtonDefault type="submit">Continue</LinkButtonDefault>
         </FormButtonContainer>
-        </Form>
+        </StyledForm>
         <AnimalsImageContainer className="animalsImageContainer">
             <img
             className="animals"
@@ -60,7 +62,7 @@ const AddKidForm = ({ errors, touched, status }) => {
             alt="animals"
             />
         </AnimalsImageContainer> 
-        </div>
+    </div>
   );
 }
 
@@ -107,3 +109,4 @@ const FormikSignUpForm = withFormik({
     }
         
   export default connect(mapStateToProps, { getLoggedInUser })(FormikSignUpForm);
+

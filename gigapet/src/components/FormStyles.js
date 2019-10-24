@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Field } from "formik";
+import { Field, Form } from "formik";
 
 export const FormTitle = styled.h2`
 font-family: 'Nunito Sans', sans-serif;
@@ -9,7 +9,7 @@ font-size: 24px;
 line-height: 33px;
 color: #247CAD;
 margin-bottom: 0;
-margin-top: 104px;
+margin-top: 0;
 `;
 
 export const FieldContainer = styled.div`
@@ -84,7 +84,6 @@ color: #247CAD;
 border: 1px solid #247CAD;
 `;
 
-
 export const AnimalsImageContainer = styled.div`
 margin: 51px;
 `;
@@ -95,4 +94,27 @@ font-family: inherit;
 border: 0;
 padding: 0;
 background: #f6f6f6;
+margin: 2px;
+`;
+
+export const StyledForm = styled(Form)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const ArrowButtonContainer = styled.div`
+  align-self: flex-start;
+  width: 40px;
+  margin-top: 70px;
+`;
+
+export const TopContent = styled.div`
+  width: 685px;
+`;
+
+export const TopContentContainer = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
 `;

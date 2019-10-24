@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { withFormik, Form } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer, ArrowButton } from "./FormStyles";
+import { StyledForm, TopContent, ArrowButtonContainer, FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer, ArrowButton, TopContentContainer } from "./FormStyles";
 import { connect } from 'react-redux';
 import { getLoggedInUser } from '../actions';
 
@@ -28,13 +28,17 @@ const LogInForm = ({ errors, touched, status, values }) => {
 
   return (
     <div className="logInForm">
-      <div className="arrowButtonContainer">
-            <ArrowButton onClick={handleClick} className="arrowBackButton">
-              <img className="ButtonImage" src={ require('../assets/BackArrow.png')} alt="arrowIcon" />
-            </ArrowButton>
-      </div>
-      <Form >
-        <FormTitle>Log In</FormTitle>
+      <TopContentContainer className="topContentContainer" >
+        <TopContent className="topContent">
+            <ArrowButtonContainer className="arrowButtonContainer">
+              <ArrowButton type="button" onClick={handleClick} className="arrowBackButton">
+                <img className="ButtonImage" src={ require('../assets/BackArrow.png')} alt="arrowIcon" />
+              </ArrowButton>
+            </ArrowButtonContainer>
+            <FormTitle>Log In</FormTitle>
+          </TopContent>
+        </TopContentContainer>
+      <StyledForm>
         <FieldContainer className="emailContainer">
         {touched.email && errors.email && <p className="warning">{errors.email}</p>}
             <div className="email">
@@ -60,7 +64,7 @@ const LogInForm = ({ errors, touched, status, values }) => {
         <FormButtonContainer className="formButtonContainer">
             <LinkButtonDefault type="submit">Continue</LinkButtonDefault>
         </FormButtonContainer>
-      </Form>
+      </StyledForm>
         <AnimalsImageContainer className="animalsImageContainer">
             <img
             className="animals"
