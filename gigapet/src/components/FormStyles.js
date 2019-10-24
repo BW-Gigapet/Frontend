@@ -112,3 +112,9 @@ export const ArrowButtonContainer = styled.div`
 export const TopContent = styled.div`
   width: 685px;
 `;
+
+export const TopContentContainer = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+`;

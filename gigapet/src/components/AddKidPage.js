@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { withFormik, Form } from "formik";
 import { useHistory } from "react-router-dom";
 import * as Yup from "yup";
-import { StyledForm, TopContent, ArrowButtonContainer, FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer, ArrowButton } from "./FormStyles";
+import { TopContentContainer, StyledForm, TopContent, ArrowButtonContainer, FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer, ArrowButton } from "./FormStyles";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { connect } from 'react-redux';
 import { getLoggedInUser } from '../actions';
@@ -29,15 +29,17 @@ const AddKidForm = ({ errors, touched, status }) => {
 
   return (
     <div className="addKidForm">
-      <StyledForm >
-        <TopContent className="topContent">
-          <ArrowButtonContainer className="arrowButtonContainer">
-            <ArrowButton onClick={handleClick} className="arrowBackButton">
-              <img className="ButtonImage" src={ require('../assets/BackArrow.png')} alt="arrowIcon" />
-            </ArrowButton>
-          </ArrowButtonContainer>
-        <FormTitle>Add Your Kid</FormTitle>
-        </TopContent>
+        <TopContentContainer className="topContentContainer">
+          <TopContent className="topContent">
+            <ArrowButtonContainer className="arrowButtonContainer">
+              <ArrowButton type="button" onClick={handleClick} className="arrowBackButton">
+                <img className="ButtonImage" src={ require('../assets/BackArrow.png')} alt="arrowIcon" />
+              </ArrowButton>
+            </ArrowButtonContainer>
+          <FormTitle>Add Your Kid</FormTitle>
+         </TopContent>
+         </TopContentContainer>
+        <StyledForm >
         <FieldContainer className="nameContainer">
         {touched.name && errors.name && <p className="warning">{errors.name}</p>}
             <div className="name">
@@ -60,7 +62,7 @@ const AddKidForm = ({ errors, touched, status }) => {
             alt="animals"
             />
         </AnimalsImageContainer> 
-        </div>
+    </div>
   );
 }
 
