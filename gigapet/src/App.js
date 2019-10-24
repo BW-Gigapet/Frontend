@@ -3,7 +3,7 @@ import './App.css';
 import { Route } from 'react-router-dom';
 import DashboardNavigation from './components/DashboardNavigation';
 import OnBoardingNavigation from './components/OnBoardingNavigation';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 import WelcomePage from './components/WelcomePage';
 import SignUpPage from './components/SignUpPage';
 import LogInPage from './components/LogInPage';
@@ -42,7 +42,7 @@ function App() {
       <Route exact path='/test/Avatar' component={Avatar} />
       {/* <Route exact path='/test/dashboard' component={Dashboard} />
       <Route exact path='/test/edit' component={Editing} /> */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

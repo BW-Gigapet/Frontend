@@ -2,6 +2,7 @@
 
 .App {
   text-align: center;
+  /* height: 100vh; */
 }
 
 body {
@@ -9,36 +10,44 @@ body {
 }
 
 .progress-bar {
-  position: relative;
+  /* position: relative; */
   height: 20px;
   width: 350px;
   border-radius: 7px;
-  border: 1px solid #EBF9EF;
+  /* border: 1px solid #EBF9EF; */
 }
 
 .filler {
   background-color: #82D99C;
   height: 100%;
   border-radius: inherit;
-  /* transition: width .2s ease-in; */
+  transition: width .2s ease-in;
 }
-
-.dashboard-container {
-  width:80%;
-  margin: 40px auto 40px auto;
+.percent{
   display: flex;
   justify-content: space-between;
+
+}
+.dashboard-container {
+  width:80%;
+  /* max-height: 100vh; */
+  margin: 0 auto 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 4% 10%;
 }
 .left-container{
   width: 40%;
-  height: 80vh;
+  /* height: 80vh; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .right-container{
   width:40%;
-  height: 80vh;
+  /* height: 80vh; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -47,6 +56,12 @@ body {
   width: 515px;
 }
 .add-food-btn{
-  width: 380px;
+  width: 405px;
   text-align: right;
+  margin-top: 20px;
 }
+
+/* .dashboard-footer{
+ margin-top: 20px;
+} */
+

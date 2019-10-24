@@ -90,11 +90,12 @@ export default connect(mapStateToProps, { fetchMeals })(DailyProgressSummary);
 
 
 const EditButton = styled.button`
-    margin-left: 45%;
+    margin-left: 250px;
     border: none;
-    font size: 1.5rem;
-    background: #f6f6f6;
+    font size: 19px;
+    background: white;
     font-weight: bold;
+    cursor: pointer;
 `;
 
 const UserAndIcon = styled.div` 
