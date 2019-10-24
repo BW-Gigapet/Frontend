@@ -10,13 +10,18 @@ left: 0;
 z-index: 5;
 background: rgba(236, 235, 237, 0.7);
 backdrop-filter: blur(4px);
-display: ${props => props.open?'unset':'none'};
+display: ${props => props.open?'flex':'none'};
+justify-content: center;
+align-items: flex-start;
 `
 
 const OverlayForeground = styled.div`
 position: fixed;
-width: 100%;
+max-width: 100%;
 height: 100%
+max-height: 100%
+margin: 0 auto;
+overflow: auto;
 z-index: 6;
 `
 
