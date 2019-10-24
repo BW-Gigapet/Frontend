@@ -18,6 +18,7 @@ import Avatar from './components/Avatar';
 import Dashboard from './components/Dashboard';
 // import DailyProgressSummary from './components/DailyProgressSummary';
 // import AddFoodLaunch from './components/AddFoodLaunch';
+// import Editing from './components/Editing'
 
 
 function App() {
@@ -39,7 +40,8 @@ function App() {
 
       <Route exact path='/test/EditModal' render={props => <Overlay {...props}><EditModal {...props} /></Overlay>} />
       <Route exact path='/test/Avatar' component={Avatar} />
-      {/* <Route exact path='/test/dashboard' component={Dashboard} /> */}
+      {/* <Route exact path='/test/dashboard' component={Dashboard} />
+      <Route exact path='/test/edit' component={Editing} /> */}
       <Footer />
     </div>
   );

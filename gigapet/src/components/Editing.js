@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import axiosWithAuth from '../utils/axiosWithAuth'
+import styled from 'styled-components';
 
 import categories from '../categories'
 
@@ -57,14 +58,16 @@ class EditingClass extends React.Component {
                 <h3>Editing</h3>
                 <p>Back to Summary</p> {/* TODO LINK TO SUMMARY */}
             </div>
-            <div>
-                {categories.map((category,index) => <SelectCategory key={index} category={category} active={this.state.category === category} setCategory={this.setCategory} />)}
-                <div>
+            <EditingContentContainer>
+                <SelectCategoryContainer className="select-category-container">
+                    {categories.map((category,index) => <SelectCategory key={index} category={category} active={this.state.category === category} setCategory={this.setCategory} />)}
+                </SelectCategoryContainer>
+                <EditingTableContainer>
                     <CategoryBanner category={this.state.category} />
                     {/* data display */}
                     <EditingTable meals={this.state.meals} />
-                </div>
-            </div>
+                </EditingTableContainer>
+            </EditingContentContainer>
         </div>
         )
     }
@@ -78,3 +81,16 @@ function mapStateToProps(state) {
 export const Editing = connect(mapStateToProps)(EditingClass)
 
 export default Editing
+
+const EditingContentContainer = styled.div`
+   display: flex;
+   flex-direction: row;
+`;
+
+const SelectCategoryContainer = styled.div`
+    width: 30%;
+`;
+
+const EditingTableContainer = styled.div`
+    width: 70%;
+`;

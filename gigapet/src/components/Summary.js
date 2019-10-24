@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import axiosWithAuth from '../utils/axiosWithAuth'
+import styled from 'styled-components';
 
 import categories from '../categories'
 
@@ -91,15 +92,17 @@ class SummaryClass extends React.Component {
     render() {
         return (
         <div hidden={this.props.hidden}>
-            <h3>Summary</h3>
-            <div>
-                <div>
-                    {categories.map((category,index) => <SelectCategory key={index} category={category} active={this.state.category === category} setCategory={this.setCategory} />)}
-                </div>
-                <div>
-                    <CategoryBanner category={this.state.category} />
-                    <SummaryData daily={this.state.daily} weekly={this.state.weekly} monthly={this.state.monthly} />
-                </div>
+            <div className="summary-container">
+                <h3>Summary</h3>
+                <SummaryContentContainer className="summary-content-container">
+                    <SelectCategoryContainer className="select-category-container">
+                        {categories.map((category,index) => <SelectCategory key={index} category={category} active={this.state.category === category} setCategory={this.setCategory} />)}
+                    </SelectCategoryContainer>
+                    <CategoryAveragesContainer className="category-averages-container">
+                        <CategoryBanner category={this.state.category} />
+                        <SummaryData daily={this.state.daily} weekly={this.state.weekly} monthly={this.state.monthly} />
+                    </CategoryAveragesContainer>
+                </SummaryContentContainer>
             </div>
         </div>
         )
@@ -114,3 +117,16 @@ function mapStateToProps(state) {
 export const Summary = connect(mapStateToProps)(SummaryClass)
 
 export default Summary
+
+const SummaryContentContainer = styled.div`
+   display: flex;
+   flex-direction: row;
+`;
+
+const SelectCategoryContainer = styled.div`
+    width: 30%;
+`;
+
+const CategoryAveragesContainer = styled.div`
+    width: 70%;
+`;
