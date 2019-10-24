@@ -14,6 +14,11 @@ const FlexForm = styled.form`
     align-items: flex-start;
 `
 
+const FlexDiv = styled.div`
+    display: flex;
+    align-items: center;
+`
+
 const CategorySelectionDiv = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -22,6 +27,14 @@ const CategorySelectionDiv = styled.div`
 
 const DividerDiv = styled.div`
     width: 10%;
+`
+
+const InfoDiv = styled.div`
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #247CAD;
+    color: white;
 `
 
 const SaveButton = styled.button`
@@ -129,8 +142,12 @@ export function EditForm(props) {
             </div>
             <DividerDiv />
             <div>
-                <h4>Portion Size</h4>
-                <span>more info button</span> {/* TODO ADD PORTION INFO */}
+                <FlexDiv>
+                    <h4>Portion Size&nbsp;</h4>
+                    <InfoDiv
+                        title={'The USDA suggests that kids between the ages of 2 and 8 years eat:\n1 to 1 1/2 cups of Veggies\n1 to 1 1/2 cups of Fruit\n3 to 5 oz Whole Grain\n3 to 4 teaspoons of Fats & Oil\nand keeping Sugar intake to a minimum\n\nhttps://www.choosemyplate.gov\n\nFor this form, small, medium, and large represent 33%, 67%, and 100% of this recommendation.'}
+                    >i</InfoDiv>
+                </FlexDiv>
                 <div>
                     {['small','medium','large'].map((portion, index) => <PortionRadioButton key={index} {...{input, setInput, portion}} />)}
                 </div>
