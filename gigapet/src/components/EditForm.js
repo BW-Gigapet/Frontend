@@ -9,6 +9,11 @@ import categories from '../categories'
 import CategoryRadioButton from './CategoryRadioButton'
 import PortionRadioButton from './PortionRadioButton'
 
+const FlexForm = styled.form`
+    display: flex;
+    align-items: flex-start;
+`
+
 const CategorySelectionDiv = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -88,7 +93,7 @@ export function EditForm(props) {
     }
 
     return (
-        <form onSubmit={submitHandler}>
+        <FlexForm onSubmit={submitHandler}>
             <div>
                 <h4>Food Group</h4>
                 <CategorySelectionDiv>
@@ -105,7 +110,7 @@ export function EditForm(props) {
                     <button type='submit'>Save</button>
                 </div>
             </div>
-        </form>
+        </FlexForm>
     )
 }
 
