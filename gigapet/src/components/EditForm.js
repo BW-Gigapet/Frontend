@@ -9,10 +9,60 @@ import categories from '../categories'
 import CategoryRadioButton from './CategoryRadioButton'
 import PortionRadioButton from './PortionRadioButton'
 
+const FlexForm = styled.form`
+    display: flex;
+    align-items: flex-start;
+`
+
+const LeftH4 = styled.h4`
+    text-align: left;
+`
+
+const FlexDiv = styled.div`
+    display: flex;
+    align-items: center;
+`
+
 const CategorySelectionDiv = styled.div`
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
+`
+
+const DividerDiv = styled.div`
+    width: 10%;
+`
+
+const InfoDiv = styled.div`
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #247CAD;
+    color: white;
+`
+
+const SaveButton = styled.button`
+cursor: pointer;
+margin-top: 20%;
+width: 204px;
+height: 64px;
+background: white;
+border: 2px solid #247CAD;
+border-radius: 6px;
+color: #247CAD;
+font-style: normal;
+font-size: 18px;
+line-height: 64px;
+
+&:active {
+    transform: scale(1.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+&:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 `
 
 export function EditForm(props) {
@@ -88,24 +138,29 @@ export function EditForm(props) {
     }
 
     return (
-        <form onSubmit={submitHandler}>
+        <FlexForm onSubmit={submitHandler}>
             <div>
-                <h4>Food Group</h4>
+                <LeftH4>Food Group</LeftH4>
                 <CategorySelectionDiv>
                     {categories.map((category,index) => <CategoryRadioButton key={index} {...{input, setInput, category}} />)}
                 </CategorySelectionDiv>
             </div>
+            <DividerDiv />
             <div>
-                <h4>Portion Size</h4>
-                <span>more info button</span> {/* TODO ADD PORTION INFO */}
+                <FlexDiv>
+                    <h4>Portion Size&nbsp;</h4>
+                    <InfoDiv
+                        title={'The USDA suggests that kids between the ages of 2 and 8 years eat:\n1 to 1 1/2 cups of Veggies\n1 to 1 1/2 cups of Fruit\n3 to 5 oz Whole Grain\n3 to 4 teaspoons of Fats & Oil\nand keeping Sugar intake to a minimum\n\nhttps://www.choosemyplate.gov\n\nFor this form, small, medium, and large represent 33%, 67%, and 100% of this recommendation.'}
+                    >i</InfoDiv>
+                </FlexDiv>
                 <div>
                     {['small','medium','large'].map((portion, index) => <PortionRadioButton key={index} {...{input, setInput, portion}} />)}
                 </div>
                 <div>
-                    <button type='submit'>Save</button>
+                    <SaveButton type='submit'>Save</SaveButton>
                 </div>
             </div>
-        </form>
+        </FlexForm>
     )
 }
 

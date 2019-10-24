@@ -4,13 +4,18 @@ import styled from 'styled-components'
 import { categories, categoryAssets } from '../categories'
 
 const Label = styled.label`
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 33.33%;
+    @media (max-width: 600px) {
+        width: 50%;
+    }
 `
 
 const IconContainer = styled.div`
+    box-sizing: border-box;
     width: 70px;
     height: 70px;
     display: flex;
@@ -34,9 +39,15 @@ export function CategoryRadioButton({input, setInput, category}) {
         setInput({...input, category})
     }
 
+    const [active, setActive] = React.useState(false)
+
+    React.useEffect(()=>{
+        setActive(category === input.category)
+    },[input])
+
     return (
         <Label> 
-            <IconContainer active={false} {...categoryAssets.get(category)} >
+            <IconContainer active={active} {...categoryAssets.get(category)} >
                 <img src={categoryAssets.get(category).icon} />
             </IconContainer>
             <p>{category}</p>
@@ -44,7 +55,7 @@ export function CategoryRadioButton({input, setInput, category}) {
                 type='radio'
                 name='category'
                 value={category}
-                checked={category===input.category}
+                checked={active}
                 onChange={changeHandler}
             />
         </Label>
