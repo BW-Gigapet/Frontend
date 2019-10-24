@@ -14,6 +14,10 @@ const FlexForm = styled.form`
     align-items: flex-start;
 `
 
+const LeftH4 = styled.h4`
+    text-align: left;
+`
+
 const FlexDiv = styled.div`
     display: flex;
     align-items: center;
@@ -38,6 +42,7 @@ const InfoDiv = styled.div`
 `
 
 const SaveButton = styled.button`
+cursor: pointer;
 margin-top: 20%;
 width: 204px;
 height: 64px;
@@ -135,7 +140,7 @@ export function EditForm(props) {
     return (
         <FlexForm onSubmit={submitHandler}>
             <div>
-                <h4>Food Group</h4>
+                <LeftH4>Food Group</LeftH4>
                 <CategorySelectionDiv>
                     {categories.map((category,index) => <CategoryRadioButton key={index} {...{input, setInput, category}} />)}
                 </CategorySelectionDiv>

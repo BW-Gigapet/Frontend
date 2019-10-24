@@ -12,6 +12,7 @@ export const ModalDiv = styled.div`
 `
 
 export const ModalClose = styled.div`
+    cursor: pointer;
     position: absolute;
     font-size: 24px;
     top: 5%;

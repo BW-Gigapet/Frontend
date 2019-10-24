@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const BlueButtonDiv = styled.div`
+cursor: pointer;
 width: 200px;
 height: 64px;
 background: ${props => props.active?'#247CAD':'white'};

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { categories, categoryAssets } from '../categories'
 
 const Label = styled.label`
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
