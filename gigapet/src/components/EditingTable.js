@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
 
 import { EditingEntry, EditModal } from './index'
 
@@ -8,23 +9,33 @@ export function EditingTable(props) {
 
     return (
         <>
-        <table>
+        <StyledTable>
             <thead>
                 <tr>
-                    <td>Time</td>
-                    <td>Size</td>
-                    <td></td>
-                    <td></td>
+                    <TableTitle>Time</TableTitle>
+                    <TableTitle>Size</TableTitle>
+                    <TableTitle ></TableTitle>
+                    <TableTitle></TableTitle>
                 </tr>
             </thead>
             <tbody>
                 {/* map table entries */}
                 {props.meals.map(meal => <EditingEntry key={meal.id} meal={meal} setEdit={setEdit} setOpen={setOpen} />)} 
             </tbody>
-        </table>
+        </StyledTable>
         <EditModal {...{open, setOpen, edit}} />
         </>
     )
 }
 
 export default EditingTable
+
+const StyledTable = styled.table`
+  width: 100%;
+`;
+
+const TableTitle = styled.td`
+    width: 25%;
+    font-size: 14px;
+    line-height: 20px;
+`;

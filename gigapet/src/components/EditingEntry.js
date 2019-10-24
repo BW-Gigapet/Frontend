@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import axiosWithAuth from '../utils/axiosWithAuth'
+import styled from 'styled-components';
 
 import { fetchMeals } from '../actions'
 
@@ -28,13 +29,37 @@ export function EditingEntry(props) {
     }
 
     return (
-        <tr>
-            <td>{props.meal.time}</td>
-            <td>{props.meal.portionSize}</td>
-            <td onClick={changeButtonHandler}>Change</td>
-            <td onClick={deleteButtonHandler}>Delete</td>
-        </tr>
+        <StyledTableRow>
+            <TimeSizeEntry>{props.meal.time}</TimeSizeEntry>
+            <TimeSizeEntry>{props.meal.portionSize}</TimeSizeEntry>
+            <ChangeColumn onClick={changeButtonHandler}>Change</ChangeColumn>
+            <DeleteColumn onClick={deleteButtonHandler}>Delete</DeleteColumn>
+        </StyledTableRow>
     )
 }
 
 export default EditingEntry
+
+const StyledTableRow = styled.tr`
+  width: 100%;
+`;
+
+const TimeSizeEntry = styled.td`
+    width: 25%;
+    font-size: 14px;
+    line-height: 20px;
+`;
+
+const ChangeColumn = styled.td`
+    width: 25%;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: bold;
+`;
+
+const DeleteColumn = styled.td`
+    width: 25%;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: bold;
+`;
