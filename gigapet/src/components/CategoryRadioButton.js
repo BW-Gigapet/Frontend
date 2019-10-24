@@ -3,6 +3,13 @@ import styled from 'styled-components'
 
 import { categories, categoryAssets } from '../categories'
 
+const Label = styled.label`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33.33%;
+`
+
 const IconContainer = styled.div`
     width: 70px;
     height: 70px;
@@ -16,9 +23,9 @@ const IconContainer = styled.div`
 `
 
 const InvisibleInput=styled.input`
-visibility: hidden;
-position: fixed;
-top: -10px;
+    visibility: hidden;
+    position: fixed;
+    top: -10px;
 `
 
 export function CategoryRadioButton({input, setInput, category}) {
@@ -28,7 +35,7 @@ export function CategoryRadioButton({input, setInput, category}) {
     }
 
     return (
-        <label> 
+        <Label> 
             <IconContainer active={false} {...categoryAssets.get(category)} >
                 <img src={categoryAssets.get(category).icon} />
             </IconContainer>
@@ -40,7 +47,7 @@ export function CategoryRadioButton({input, setInput, category}) {
                 checked={category===input.category}
                 onChange={changeHandler}
             />
-        </label>
+        </Label>
     )
 }
 

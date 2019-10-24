@@ -55,7 +55,7 @@ class EditingClass extends React.Component {
         <div hidden={this.props.hidden}>
             <div>
                 <h3>Editing</h3>
-                <p>Back to Summary</p> {/* link or change parent state ? */}
+                <p>Back to Summary</p> {/* TODO LINK TO SUMMARY */}
             </div>
             <div>
                 {categories.map((category,index) => <SelectCategory key={index} category={category} active={this.state.category === category} setCategory={this.setCategory} />)}
