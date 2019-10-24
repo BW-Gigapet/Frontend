@@ -54,10 +54,10 @@ class EditingClass extends React.Component {
     render() {
         return (
         <div hidden={this.props.hidden}>
-            <div>
-                <h3>Editing</h3>
-                <p>Back to Summary</p> {/* TODO LINK TO SUMMARY */}
-            </div>
+            <EditingHeaderContainer>
+                <EditingHeader>Editing</EditingHeader>
+                <BackToSummary onClick={()=>{this.props.history.push('/dashboard')}}>Back to Summary</BackToSummary>
+            </EditingHeaderContainer>
             <EditingContentContainer>
                 <SelectCategoryContainer className="select-category-container">
                     {categories.map((category,index) => <SelectCategory key={index} category={category} active={this.state.category === category} setCategory={this.setCategory} />)}
@@ -88,9 +88,35 @@ const EditingContentContainer = styled.div`
 `;
 
 const SelectCategoryContainer = styled.div`
-    width: 30%;
+    width: 25%;
+    margin-right: 10%;
 `;
 
 const EditingTableContainer = styled.div`
-    width: 70%;
+    width: 65%;
+`;
+
+const EditingHeaderContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-content: flex-end;
+    margin-bottom: 20px;
+`;
+
+const EditingHeader = styled.h3`
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 41px;
+    color: #247CAD;
+    text-align: left;
+    margin: 0;
+`;
+
+const BackToSummary = styled.p`
+    font-size: 16px;
+    line-height: 20px;
+    color: #247CAD;
+    margin: 0;
 `;

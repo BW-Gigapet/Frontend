@@ -92,8 +92,8 @@ class SummaryClass extends React.Component {
     render() {
         return (
         <div hidden={this.props.hidden}>
-            <div className="summary-container">
-                <h3>Summary</h3>
+            <SummaryContainer className="summary-container">
+                <SummaryHeader>Summary</SummaryHeader>
                 <SummaryContentContainer className="summary-content-container">
                     <SelectCategoryContainer className="select-category-container">
                         {categories.map((category,index) => <SelectCategory key={index} category={category} active={this.state.category === category} setCategory={this.setCategory} />)}
@@ -103,7 +103,7 @@ class SummaryClass extends React.Component {
                         <SummaryData daily={this.state.daily} weekly={this.state.weekly} monthly={this.state.monthly} />
                     </CategoryAveragesContainer>
                 </SummaryContentContainer>
-            </div>
+            </SummaryContainer>
         </div>
         )
     }
@@ -118,15 +118,31 @@ export const Summary = connect(mapStateToProps)(SummaryClass)
 
 export default Summary
 
+const SummaryContainer = styled.div`
+   margin-bottom: 150px;
+`;
+
 const SummaryContentContainer = styled.div`
    display: flex;
    flex-direction: row;
 `;
 
 const SelectCategoryContainer = styled.div`
-    width: 30%;
+    width: 25%;
+    margin-right: 10%;
 `;
 
 const CategoryAveragesContainer = styled.div`
-    width: 70%;
+    width: 65%;
+`;
+
+const SummaryHeader = styled.h3`
+font-style: normal;
+font-weight: bold;
+font-size: 30px;
+line-height: 41px;
+color: #247CAD;
+text-align: left;
+margin: 0;
+margin-bottom: 20px;
 `;
