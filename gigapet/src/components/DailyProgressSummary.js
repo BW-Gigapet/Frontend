@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchMeals } from '../actions';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import image from '../assets/UserIcon.png';
 
 const categories = [
     {
@@ -57,8 +58,11 @@ const DailyProgressSummary = (props) => {
     },[props.loggedInUser])
 
     return (
-        <div>
-            <h1>{child.name}</h1>
+        <div className='daily-summary-container'>
+            <UserAndIcon className='user-container'>
+                <h1>{child.name}</h1>
+                <img width='40px' height='40px' src={image} alt='switch child accounts icon' />
+            </UserAndIcon>
             <EditButton onClick={()=>{history.push('/dashboard/edit')}}>Edit</EditButton>
             {/* map categories */}
             {categories.map(category => (
@@ -86,8 +90,16 @@ export default connect(mapStateToProps, { fetchMeals })(DailyProgressSummary);
 
 
 const EditButton = styled.button`
-  border: none;
-  font size: 1.5rem;
-  background: #f6f6f6;
-  font-weight: bold;
+    margin-left: 45%;
+    border: none;
+    font size: 1.5rem;
+    background: #f6f6f6;
+    font-weight: bold;
+`;
+
+const UserAndIcon = styled.div` 
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `;

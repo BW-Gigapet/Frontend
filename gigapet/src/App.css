@@ -17,4 +17,30 @@
   /* transition: width .2s ease-in; */
 }
 
-
+.dashboard-container {
+  width:80%;
+  margin: 40px auto 40px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.left-container{
+  width:40%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.right-container{
+  width:40%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.daily-summary-container{
+  width: 515px;
+}
+.add-food-btn{
+  width: 380px;
+  text-align: right;
+}

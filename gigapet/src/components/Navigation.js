@@ -5,7 +5,7 @@ import image from '../assets/QR Bunny.png'
 
 
 const landingHandler = () => {
-    window.location.href = ''
+    window.location.href = 'https://bw-gigapet.github.io/Marketing--Robin/index.html'
 }
 
 const Navigation = (props) => {
