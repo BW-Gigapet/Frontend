@@ -103,6 +103,12 @@ export const StyledForm = styled(Form)`
   align-items: center;
 `;
 
+export const TopContentContainer = styled(Form)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export const ArrowButtonContainer = styled.div`
   align-self: flex-start;
   width: 40px;

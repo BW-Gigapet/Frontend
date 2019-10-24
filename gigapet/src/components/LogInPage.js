@@ -3,7 +3,21 @@ import { useHistory } from 'react-router-dom';
 import { withFormik, Form } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { StyledForm, TopContent, ArrowButtonContainer, FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer, ArrowButton } from "./FormStyles";
+import { 
+  StyledForm,
+  TopContentContainer,
+  TopContent,
+  ArrowButtonContainer,
+  FormTitle,
+  FieldContainer,
+  FieldLabel,
+  ActualLabel,
+  InputField,
+  LinkButtonDefault,
+  FormButtonContainer,
+  AnimalsImageContainer,
+  ArrowButton,
+} from "./FormStyles";
 import { connect } from 'react-redux';
 import { getLoggedInUser } from '../actions';
 
@@ -22,47 +36,51 @@ const LogInForm = ({ errors, touched, status, values }) => {
 
   let history = useHistory();
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
   history.push("/")
   };
 
   return (
     <div className="logInForm">
-      <StyledForm>
-        <TopContent className="topContent">
-          <ArrowButtonContainer className="arrowButtonContainer">
-            <ArrowButton onClick={handleClick} className="arrowBackButton">
-              <img className="ButtonImage" src={ require('../assets/BackArrow.png')} alt="arrowIcon" />
-            </ArrowButton>
-          </ArrowButtonContainer>
-          <FormTitle>Log In</FormTitle>
-        </TopContent>
-        <FieldContainer className="emailContainer">
-        {touched.email && errors.email && <p className="warning">{errors.email}</p>}
-            <div className="email">
-              <FieldLabel htmlFor="email">
-                <ActualLabel>Email</ActualLabel>
-              </FieldLabel>
-              <div className="emailInputContainer">
-                <InputField type="email" name="email" placeholder="Email" size="45"/>
+      <TopContentContainer>
+          <TopContent className="topContent">
+            <ArrowButtonContainer className="arrowButtonContainer">
+              <ArrowButton onClick={handleClick} className="arrowBackButton">
+                <img className="ButtonImage" src={ require('../assets/BackArrow.png')} alt="arrowIcon" />
+              </ArrowButton>
+            </ArrowButtonContainer>
+            <FormTitle>Log In</FormTitle>
+          </TopContent>
+        </TopContentContainer>
+        <StyledForm>
+          <FieldContainer className="emailContainer">
+          {touched.email && errors.email && <p className="warning">{errors.email}</p>}
+              <div className="email">
+                <FieldLabel htmlFor="email">
+                  <ActualLabel>Email</ActualLabel>
+                </FieldLabel>
+                <div className="emailInputContainer">
+                  <InputField type="email" name="email" placeholder="Email" size="45"/>
+                </div>
               </div>
-            </div>
-        </FieldContainer>
-        <FieldContainer className="passwordContainer">
-        {touched.password && errors.password &&<p className="warning">{errors.password}</p>}
-            <div className="password">
-              <FieldLabel htmlFor="password">
-                <ActualLabel>Password</ActualLabel>
-              </FieldLabel>
-              <div className="passwordInputContainer">
-                <InputField type="password" name="password" placeholder="Password" size="45"/>
+          </FieldContainer>
+          <FieldContainer className="passwordContainer">
+          {touched.password && errors.password &&<p className="warning">{errors.password}</p>}
+              <div className="password">
+                <FieldLabel htmlFor="password">
+                  <ActualLabel>Password</ActualLabel>
+                </FieldLabel>
+                <div className="passwordInputContainer">
+                  <InputField type="password" name="password" placeholder="Password" size="45"/>
+                </div>
               </div>
-            </div>
-        </FieldContainer>
-        <FormButtonContainer className="formButtonContainer">
-            <LinkButtonDefault type="submit">Continue</LinkButtonDefault>
-        </FormButtonContainer>
-      </StyledForm>
+          </FieldContainer>
+          <FormButtonContainer className="formButtonContainer">
+              <LinkButtonDefault type="submit">Continue</LinkButtonDefault>
+          </FormButtonContainer>
+        </StyledForm>
         <AnimalsImageContainer className="animalsImageContainer">
             <img
             className="animals"
