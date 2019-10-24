@@ -20,6 +20,33 @@ const CategorySelectionDiv = styled.div`
     align-items: flex-start;
 `
 
+const DividerDiv = styled.div`
+    width: 10%;
+`
+
+const SaveButton = styled.button`
+margin-top: 20%;
+width: 204px;
+height: 64px;
+background: white;
+border: 2px solid #247CAD;
+border-radius: 6px;
+color: #247CAD;
+font-style: normal;
+font-size: 18px;
+line-height: 64px;
+
+&:active {
+    transform: scale(1.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+&:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+`
+
 export function EditForm(props) {
     console.log('Edit form props', props)
     
@@ -100,6 +127,7 @@ export function EditForm(props) {
                     {categories.map((category,index) => <CategoryRadioButton key={index} {...{input, setInput, category}} />)}
                 </CategorySelectionDiv>
             </div>
+            <DividerDiv />
             <div>
                 <h4>Portion Size</h4>
                 <span>more info button</span> {/* TODO ADD PORTION INFO */}
@@ -107,7 +135,7 @@ export function EditForm(props) {
                     {['small','medium','large'].map((portion, index) => <PortionRadioButton key={index} {...{input, setInput, portion}} />)}
                 </div>
                 <div>
-                    <button type='submit'>Save</button>
+                    <SaveButton type='submit'>Save</SaveButton>
                 </div>
             </div>
         </FlexForm>
