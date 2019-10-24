@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { withFormik, Form } from "formik";
 import * as Yup from "yup";
 import axios from 'axios';
+import styled from 'styled-components';
 import { FormTitle, FieldContainer, FieldLabel, ActualLabel, InputField, LinkButtonDefault, FormButtonContainer, AnimalsImageContainer } from "./FormStyles";
 import { connect } from 'react-redux';
 import { getLoggedInUser } from '../actions';
@@ -21,7 +22,7 @@ const SignUpForm = ({ errors, touched, status }) => {
 
   return (
     <div className="signUpForm">
-      <Form >
+      <StyledForm >
         <FormTitle>Sign Up</FormTitle>
         <FieldContainer className="nameContainer">
         {touched.name && errors.name && <p className="warning">{errors.name}</p>}
@@ -59,7 +60,7 @@ const SignUpForm = ({ errors, touched, status }) => {
         <FormButtonContainer className="formButtonContainer">
             <LinkButtonDefault type="submit">Continue</LinkButtonDefault>
         </FormButtonContainer>
-      </Form>
+      </StyledForm>
       <AnimalsImageContainer className="animalsImageContainer">
             <img
             className="animals"
@@ -120,3 +121,7 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { getLoggedInUser })(FormikSignUpForm);
+
+const StyledForm = styled(Form)`
+  margin-top: 70px;
+`;

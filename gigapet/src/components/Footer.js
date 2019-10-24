@@ -7,7 +7,7 @@ const Footer = () => {
             <FooterTag className="footer">
                 <FooterContent className="footer-content">
                             <div className="footer-section about">
-                                <h2>GIGAPET INC</h2>
+                                <h2>GIGAPET INC.</h2>
                                 <hr></hr>
                                 <p>San Francisco, CA</p>
                                 <p>USA</p>
@@ -26,27 +26,26 @@ const Footer = () => {
                                 <h2>QUICK LINKS</h2>
                                 <hr></hr>
                                 <ul>
-                                    <a href="index.html">
+                                    <a href="https://bw-gigapet.github.io/Marketing--Robin/index.html">
                                         <li>Home</li>
                                     </a>
-                                    <a href="about.html">
+                                    <a href="https://bw-gigapet.github.io/Marketing--Robin/about.html">
                                         <li>About Us</li>
                                     </a>
                                 </ul>
                             </div>
-
                 </FooterContent>
 
-                            <div className="footer-bottom">
-                                <p>&copy; Copyright</p>
-                                <div className="socials">
-                                        <a href="#"><i className="fab fa-github-square"></i></a>
-                                        <a href="#"><i className="fab fa-linkedin-in-square"></i></a>
-                                        <a href="#"><i className="fab fa-twitter-square"></i></a>
-                                        <a href="#"><i className="fab fa-facebook-square"></i></a>
-                                </div>
-                            </div>
-      </FooterTag>
+                <div className="footer-bottom">
+                    <p>&copy; Copyright</p>
+                    <div className="socials">
+                        <a href="#"><img className="fab fa-github-square"></img></a>
+                        <a href="#"><img className="fab fa-linkedin-in-square"></img></a>
+                        <a href="#"><img className="fab fa-twitter-square"></img></a>
+                        <a href="#"><img className="fab fa-facebook-square"></img></a>
+                    </div>
+                </div>
+            </FooterTag>
         )
       
     

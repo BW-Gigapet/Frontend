@@ -6,27 +6,55 @@ import { DefaultButton } from './FormButton';
 import { ArrowButton } from './FormStyles';
 
 const PageContainer = styled.section`
-  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
-const SetUpQuestion = styled.h4`
+const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 685px;
+  margin-top: 30px;
+  margin-bottom: 0;
+`;
+
+const ArrowButtonContainer = styled.div`
+  align-self: flex-start;
+  width: 40px;
+  margin-top: 70px;
+`;
+
+const SuccessMessage = styled.h4`
+  font-family: 'Nunito Sans', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  color: #247CAD;
+  margin: 0;
+`;
+
+const BeginSetupMessage = styled.h5`
 font-family: 'Nunito Sans', sans-serif;
 font-style: normal;
 font-weight: normal;
-font-size: 48px;
-line-height: 65px;
-color: #247CAD;
-margin-top: 87px;
-margin-bottom: 0;
+font-size: 18px;
+line-height: 24px;
+color: black;
+margin-top: 40px;
+margin-bottom: 80px;
 `;
 
-const ButtonsContainer = styled.div`
-display: flex;
-flex-direction: row;
-`;
+// const ButtonsContainer = styled.div`
+// display: flex;
+// flex-direction: row;
+// `;
 
 const AnimalsImageContainer = styled.div`
-margin: 51px;
+margin-bottom: 50px;
+margin-top: 30px;
 `;
 
 export default function KidsProfileSetup(props) {
@@ -40,16 +68,17 @@ export default function KidsProfileSetup(props) {
 
     return (
 
-      <PageContainer className="kidsProfileSetup">
-        <div className="contentContainer">
-          <div className="arrowButtonContainer">
+      <PageContainer className="kidsProfileSetupContainer">
+        <ContentContainer className="contentContainer">
+          <ArrowButtonContainer className="arrowButtonContainer">
             <ArrowButton onClick={handleClick} className="arrowBackButton">
               <img className="ButtonImage" src={ require('../assets/BackArrow.png')} alt="arrowIcon" />
             </ArrowButton>
-          </div>
-          <SetUpQuestion>Begin setting up your kids profile!</SetUpQuestion>
-          <DefaultButton label={"Yes"} link={"/addkidpage"} />{/* add correct links, history needed? */}
-        </div>
+          </ArrowButtonContainer>
+          <SuccessMessage className="successMessage">You have successfully registered!</SuccessMessage>
+          <BeginSetupMessage className="beginSetupMessage">Begin setting up your kid's profile.</BeginSetupMessage>
+          <DefaultButton label={"Continue"} link={"/addkidpage"} />
+        </ContentContainer>
         <AnimalsImageContainer className="animalsImageContainer">
         <img
             className="animals"
