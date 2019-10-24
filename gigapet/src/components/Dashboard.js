@@ -5,12 +5,14 @@ import Summary from './Summary'
 import Avatar from './Avatar'
 import { AddModal } from './AddModal'
 import Editing from './Editing'
+import DashboardFooter from './DashboardFooter'
 
 
 const Dashboard = props => {
     // add routes dashboard/edit and dashboard/edit/:category
     // if /edit, replace Summary with Editing
     return (
+        <>
         <div className='dashboard-container'>
             <div className='left-container'>
                 <DailyProgressSummary />
@@ -22,6 +24,10 @@ const Dashboard = props => {
                 <Avatar />
             </div>
         </div>
+        <div className='dashboard-footer'>
+        <DashboardFooter />
+        </div>
+        </>
     )
 }
 
