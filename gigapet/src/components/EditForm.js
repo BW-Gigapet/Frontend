@@ -2,11 +2,18 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 import { fetchMeals } from '../actions'
 import axiosWithAuth from '../utils/axiosWithAuth';
+import styled from 'styled-components'
 
 import categories from '../categories'
 
 import CategoryRadioButton from './CategoryRadioButton'
 import PortionRadioButton from './PortionRadioButton'
+
+const CategorySelectionDiv = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+`
 
 export function EditForm(props) {
     console.log('Edit form props', props)
@@ -84,13 +91,13 @@ export function EditForm(props) {
         <form onSubmit={submitHandler}>
             <div>
                 <h4>Food Group</h4>
-                <div>
+                <CategorySelectionDiv>
                     {categories.map((category,index) => <CategoryRadioButton key={index} {...{input, setInput, category}} />)}
-                </div>
+                </CategorySelectionDiv>
             </div>
             <div>
                 <h4>Portion Size</h4>
-                <span>more info button</span>
+                <span>more info button</span> {/* TODO ADD PORTION INFO */}
                 <div>
                     {['small','medium','large'].map((portion, index) => <PortionRadioButton key={index} {...{input, setInput, portion}} />)}
                 </div>
