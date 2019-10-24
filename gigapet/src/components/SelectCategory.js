@@ -5,7 +5,8 @@ import styled from 'styled-components'
 
 export function SelectCategory({category, setCategory, active}) {
     return (
-        <CategoryName // replace with styled component, pass "active" in props
+        <CategoryName
+            active={active}
             onClick={()=>{setCategory(category)}}
         >{category}</CategoryName>
     )
@@ -14,9 +15,12 @@ export function SelectCategory({category, setCategory, active}) {
 export default SelectCategory
 
 const CategoryName = styled.h6`
+    cursor: pointer;
     font-size: 18px;
     line-height: 24px;
-    color: #1A051D;
+    color: ${props => props.active?'#247CAD':'#1A051D'};
+    text-decoration-color: #247CAD;
+    text-decoration: ${props => props.active?'underline':'none'};
     margin: 0;
     font-style: normal;
     font-weight: normal;
