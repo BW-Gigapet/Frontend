@@ -20,18 +20,27 @@ const DailyProgressCategory = (props) => {
         
         //Lookup on category dataObject?? -- avoid merging the list set up with state
         //setPercentage(props.categoryData[props.category.id])
+        // if(props.mealData.length === 0) {
+        //     setPercentage(0) 
+        // }
         if (props.mealData.length > 0) {
            
-        let filteredMeals = props.mealData.filter(meal => {
-            console.log("meal name", meal.name, "category name", props.category.name)
-            return (meal.name === props.category.name)
-        })
+            let filteredMeals = props.mealData.filter(meal => {
+                console.log("meal name", meal.name, "category name", props.category.name)
+                return (meal.name === props.category.name)
+            })
 
-        if (filteredMeals.length > 0) {
-            let newPercent = filteredMeals.reduce((total, meal) => total = total + meal.percent,0)
-        setPercentage(newPercent)
-    }
-    }
+            if (filteredMeals.length > 0) {
+                let newPercent = filteredMeals.reduce((total, meal) => total = total + meal.percent, 0)
+            setPercentage(newPercent)
+            }
+            else {
+                setPercentage(0)
+            }
+        }
+        else {
+            setPercentage(0)
+        }
 
     }, [props.mealData])
 

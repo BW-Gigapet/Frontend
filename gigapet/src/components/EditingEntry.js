@@ -15,15 +15,16 @@ export function EditingEntry(props) {
     }
 
     function deleteButtonHandler(e) {
-        console.log('deleteHandler')
+        console.log('deleteHandler', e)
         // axios.delete this entry
         axiosWithAuth().delete(`/api/meals/${props.meal.id}`)
         .then(resp => {
             console.log(resp)
+            // props.fetchMeals
             dispatch(fetchMeals(props.meal.child_id))
         })
         .catch(err => {
-            console.log(err.response)
+            console.log('could not delete', err.response)
         })
     }
 
