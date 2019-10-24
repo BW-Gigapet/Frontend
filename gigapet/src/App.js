@@ -40,12 +40,8 @@ function App() {
 
       <Route exact path='/test/EditModal' render={props => <Overlay {...props}><EditModal {...props} /></Overlay>} />
       <Route exact path='/test/Avatar' component={Avatar} />
-<<<<<<< HEAD
       {/* <Route exact path='/test/dashboard' component={Dashboard} />
       <Route exact path='/test/edit' component={Editing} /> */}
-=======
-      {/* <Route exact path='/test/dashboard' component={Dashboard} /> */}
->>>>>>> origin/dominique-maack
       {/* <Footer /> */}
     </div>
   );
