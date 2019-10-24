@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
-import Navigation from './components/Navigation';
-import Footer from './components/Footer'
+import DashboardNavigation from './components/DashboardNavigation';
+import OnBoardingNavigation from './components/OnBoardingNavigation';
+import Footer from './components/Footer';
 import WelcomePage from './components/WelcomePage';
 import SignUpPage from './components/SignUpPage';
 import LogInPage from './components/LogInPage';
@@ -22,9 +23,9 @@ function App() {
   return (
     <div className="App">
 
-      {/* <Route path='/' component={Navigation} /> */}
-      
-      <Navigation />
+      <Route exact path={["/","/signup","/login","/kidsprofilesetup","/addkidpage","/successaddkid"]} component={OnBoardingNavigation} />
+      <Route exact path={["/home","/dashboard","/dashboard/edit"]} component={DashboardNavigation} />
+  
       <Route exact path="/" component={WelcomePage} />
       <Route exact path="/signup" component={SignUpPage} />
       <Route exact path="/login" component={LogInPage} />
