@@ -8,9 +8,13 @@ const Label = styled.label`
     flex-direction: column;
     align-items: center;
     width: 33.33%;
+    @media (max-width: 600px) {
+        width: 50%;
+    }
 `
 
 const IconContainer = styled.div`
+    box-sizing: border-box;
     width: 70px;
     height: 70px;
     display: flex;
