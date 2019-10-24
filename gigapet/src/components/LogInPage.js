@@ -36,9 +36,7 @@ const LogInForm = ({ errors, touched, status, values }) => {
 
   let history = useHistory();
 
-  const handleClick = (e) => {
-    e.preventDefault()
-    e.stopPropagation()
+  const handleClick = () => {
   history.push("/")
   };
 
