@@ -34,9 +34,15 @@ export function CategoryRadioButton({input, setInput, category}) {
         setInput({...input, category})
     }
 
+    const [active, setActive] = React.useState(false)
+
+    React.useEffect(()=>{
+        setActive(category === input.category)
+    },[input])
+
     return (
         <Label> 
-            <IconContainer active={false} {...categoryAssets.get(category)} >
+            <IconContainer active={active} {...categoryAssets.get(category)} >
                 <img src={categoryAssets.get(category).icon} />
             </IconContainer>
             <p>{category}</p>
@@ -44,7 +50,7 @@ export function CategoryRadioButton({input, setInput, category}) {
                 type='radio'
                 name='category'
                 value={category}
-                checked={category===input.category}
+                checked={active}
                 onChange={changeHandler}
             />
         </Label>

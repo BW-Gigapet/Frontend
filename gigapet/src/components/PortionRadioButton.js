@@ -2,15 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 
 const BlueButtonDiv = styled.div`
-width: 204px;
+width: 200px;
 height: 64px;
-background: white;
+background: ${props => props.active?'#247CAD':'white'};
 border: 2px solid #247CAD;
 border-radius: 6px;
-color: #247CAD;
+color: ${props => props.active?'white':'#247CAD'};
 font-style: normal;
 font-size: 18px;
 line-height: 64px;
+margin-bottom: 10%;
 
 &:active {
     transform: scale(1.5);
@@ -35,14 +36,20 @@ export function PortionRadioButton({input, setInput, portion}) {
         setInput({...input, portion})
     }
 
+    const [active, setActive] = React.useState(false)
+
+    React.useEffect(()=>{
+        setActive(portion === input.portion)
+    },[input])
+
     return (
         <label>
-            <BlueButtonDiv>{portion}</BlueButtonDiv>
+            <BlueButtonDiv active={active}>{portion}</BlueButtonDiv>
             <InvisibleInput //visibility: hidden;
                 type='radio'
                 name='category'
                 value={portion}
-                checked={portion===input.portion}
+                checked={active}
                 onChange={changeHandler}
             />
         </label>
