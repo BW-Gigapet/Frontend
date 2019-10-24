@@ -1,8 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { categories, categoryAssets } from '../categories'
+
+import { categoryAssets } from '../categories'
 
 const CategoryBannerContainer = styled.div`
+    background: ${props => props.colorA};
+    display: flex;
+    justify-content: center;
+    align-items:center;
     height: 66px;
 `;
 
@@ -11,10 +16,11 @@ const CategoryName = styled.h2`
     line-height: 28px;
 `;
 
-export function CategoryBanner(props, category) {
+export function CategoryBanner({category}) {
+    // console.log(category, categoryAssets.get(category))
     return (
-        <CategoryBannerContainer> {/* todo: styling */}
-            <h2>{props.category}</h2>
+        <CategoryBannerContainer {...categoryAssets.get(category)}> {/* todo: styling */}
+            <CategoryName>{category}</CategoryName>
         </CategoryBannerContainer>
     )
 }
