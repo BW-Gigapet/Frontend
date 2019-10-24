@@ -1,28 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FaFacebookSquare } from 'react-icons/fa';
+import { FaTwitter } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
 
 
-const Footer = () => {
+
+const DashboardFooter = () => {
         return (
+            <>
             <FooterTag className="footer">
                 <FooterContent className="footer-content">
-                            <div className="footer-section about">
+                            <FooterSection className="footer-section about">
                                 <h2>GIGAPET INC.</h2>
                                 <hr></hr>
                                 <p>San Francisco, CA</p>
                                 <p>USA</p>
                                 <p>1(800) 888-8888</p>
-                            </div>
+                            </FooterSection>
 
-                            <div className="footer-section">
+                            <FooterSection className="footer-section">
                                 <h2>FIND US</h2>
                                 <hr></hr>
                                 <p>Instagram</p>
                                 <p>Facebook</p>
                                 <p>Twitter</p>
-                            </div>
+                            </FooterSection>
 
-                            <div className="footer-section">
+                            <FooterSection className="footer-section">
                                 <h2>QUICK LINKS</h2>
                                 <hr></hr>
                                 <ul>
@@ -33,36 +38,42 @@ const Footer = () => {
                                         <li>About Us</li>
                                     </a>
                                 </ul>
-                            </div>
+                            </FooterSection>
                 </FooterContent>
-
-                <div className="footer-bottom">
+                </FooterTag>
+                <FooterBottom className="footer-bottom">
                     <p>&copy; Copyright</p>
-                    <div className="socials">
-                        <a href="#"><img className="fab fa-github-square"></img></a>
-                        <a href="#"><img className="fab fa-linkedin-in-square"></img></a>
-                        <a href="#"><img className="fab fa-twitter-square"></img></a>
-                        <a href="#"><img className="fab fa-facebook-square"></img></a>
-                    </div>
-                </div>
-            </FooterTag>
+                    <Socials className="socials">
+                        <a href="#"><FaFacebookSquare/></a>
+                        <a href="#"><FaTwitter /></a>
+                        <a href="#"><FaInstagram /></a>
+                    </Socials>
+                </FooterBottom>
+            </>
         )
       
     
 }
 
-export default Footer;
+export default DashboardFooter;
 
 const FooterTag = styled.div`
     background-color: #F6F6F6;
-    // color: #247CAD;
-    height: 400px;
+    height: 170px;
+    color: #247CAD;
     position: relative;
 `;
 
 const FooterContent = styled.div`
-    height: 350px;
     display: flex;
+    hr{
+        border: .7px solid #006BE8;
+    }
+`;
+
+const FooterSection = styled.div`
+    flex: 1;
+    padding: 30px;
     h2{
         color: rgba(0, 0, 0, 0.8);
         font-size: 14px;
@@ -88,4 +99,33 @@ const FooterContent = styled.div`
             list-style: none;
         }
     }
+  
+`;
+
+const FooterBottom = styled.div`
+    background-color: #FBFBFB;
+    color: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    p{
+        // padding-top: 2%;
+        width: 50%;
+        text-align: right;
+    }
+`;
+
+const Socials = styled.div`
+    margin-top: 15px;
+    width: 40%;
+    text-align: right;
+    a{
+        
+
+        color: #247CAD;
+        font-size: 20px;
+        text-align: right;
+    }
+  
 `;
