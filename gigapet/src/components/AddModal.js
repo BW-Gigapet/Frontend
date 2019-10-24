@@ -2,6 +2,8 @@ import React from 'react'
 import EditForm from './EditForm'
 import Overlay from './Overlay'
 
+import { ModalDiv } from './EditModal'
+
 export function AddModal(props) {
     const { category, open, setOpen } = props
     
@@ -11,12 +13,12 @@ export function AddModal(props) {
 
     return (
         <Overlay open={open}>
-            <div>
+            <ModalDiv>
                 <h2>Adding New Food Entry</h2>
                 <p>Please select the appropriate food group and portion size.</p>
                 <div onClick={closeModal}>Close Button</div> {/*onclick setOpen(false) */}
                 <EditForm {...props} />
-            </div>
+            </ModalDiv>
         </Overlay>
     )
 }
