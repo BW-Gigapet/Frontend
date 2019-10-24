@@ -102,6 +102,7 @@ const EditingHeaderContainer = styled.div`
     align-items: flex-end;
     align-content: flex-end;
     margin-bottom: 20px;
+    margin-top: 25px;
 `;
 
 const EditingHeader = styled.h3`
