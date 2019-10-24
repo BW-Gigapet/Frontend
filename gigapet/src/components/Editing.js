@@ -119,4 +119,5 @@ const BackToSummary = styled.p`
     line-height: 20px;
     color: #247CAD;
     margin: 0;
+    cursor: pointer;
 `;

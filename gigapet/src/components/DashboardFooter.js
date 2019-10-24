@@ -83,6 +83,7 @@ const FooterSection = styled.div`
     p{
         font-size: 12px;
         text-align: left;
+        color: rgba(0, 0, 0, 0.8)
     }
     ul{
         text-align: left;
@@ -113,6 +114,7 @@ const FooterBottom = styled.div`
         // padding-top: 2%;
         width: 50%;
         text-align: right;
+        
     }
 `;
 
@@ -122,9 +124,9 @@ const Socials = styled.div`
     text-align: right;
     a{
         
-
+        margin-left: 8px;
         color: #247CAD;
-        font-size: 20px;
+        font-size: 15px;        
         text-align: right;
     }
   

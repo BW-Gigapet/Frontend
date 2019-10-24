@@ -13,16 +13,6 @@ const DailyProgressCategory = (props) => {
     // const [color, setColor] = useState();
 
     useEffect(() => {
-        // props.fetchMeals();
-
-        {/*  make axios call for todays category progress (%) and add condition logic for color */}
-        // setPercentage(33);
-        
-        //Lookup on category dataObject?? -- avoid merging the list set up with state
-        //setPercentage(props.categoryData[props.category.id])
-        // if(props.mealData.length === 0) {
-        //     setPercentage(0) 
-        // }
         if (props.mealData.length > 0) {
            
             let filteredMeals = props.mealData.filter(meal => {
@@ -44,7 +34,6 @@ const DailyProgressCategory = (props) => {
 
     }, [props.mealData])
 
-    // if the meal.name/category === props.category.name && meal.date is within current day, then total === total + mealData.portionSize
 
     return (
        
