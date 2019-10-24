@@ -3,7 +3,7 @@ import './App.css';
 import { Route } from 'react-router-dom';
 import DashboardNavigation from './components/DashboardNavigation';
 import OnBoardingNavigation from './components/OnBoardingNavigation';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 import WelcomePage from './components/WelcomePage';
 import SignUpPage from './components/SignUpPage';
 import LogInPage from './components/LogInPage';
@@ -18,6 +18,7 @@ import Avatar from './components/Avatar';
 import Dashboard from './components/Dashboard';
 // import DailyProgressSummary from './components/DailyProgressSummary';
 // import AddFoodLaunch from './components/AddFoodLaunch';
+// import Editing from './components/Editing'
 
 
 function App() {
@@ -39,8 +40,9 @@ function App() {
 
       <Route exact path='/test/EditModal' render={props => <Overlay {...props}><EditModal {...props} /></Overlay>} />
       <Route exact path='/test/Avatar' component={Avatar} />
-      {/* <Route exact path='/test/dashboard' component={Dashboard} /> */}
-      <Footer />
+      {/* <Route exact path='/test/dashboard' component={Dashboard} />
+      <Route exact path='/test/edit' component={Editing} /> */}
+      {/* <Footer /> */}
     </div>
   );
 }

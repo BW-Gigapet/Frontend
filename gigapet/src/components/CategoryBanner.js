@@ -1,11 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
+import { categories, categoryAssets } from '../categories'
 
-export function CategoryBanner(props) {
+const CategoryBannerContainer = styled.div`
+    height: 66px;
+`;
+
+const CategoryName = styled.h2`
+    font-size: 21px;
+    line-height: 28px;
+`;
+
+export function CategoryBanner(props, category) {
     return (
-        <div> {/* todo: styling */}
+        <CategoryBannerContainer> {/* todo: styling */}
             <h2>{props.category}</h2>
-        </div>
+        </CategoryBannerContainer>
     )
 }
 

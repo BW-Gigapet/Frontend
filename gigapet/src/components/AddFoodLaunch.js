@@ -91,23 +91,18 @@ const AddFoodLaunch = () => {
 export default AddFoodLaunch;
 
 const Icons = styled.div`
-    width: 275px;
-    // height: 250px;
-    // display: flex;
-    // flex-wrap: wrap;
-    // justify-content: space-between;
-    // margin-left: 5%;
+    width: 319px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 30px;
-    // justify-content: center;
+   
 `;
 
 const IconContainer = styled.div`
     display: flex;
     flex-direction: column;
-    font-size: 10px;
+    font-size: 12px;
 `;
 
 const AddButton = styled.button`
@@ -118,56 +113,63 @@ const AddButton = styled.button`
     border-radius: 50%;
     font-size: 2rem;
     border: none;
+    cursor: pointer;
 `;
 
 const VegButton = styled.button`
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     text-decoration: none;
     border: none;
-    padding: 0;
+    
     background-color: #EBF9EF;
+    cursor: pointer;
 `;
 
 const FruitButton = styled.button`
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     text-decoration: none;
     border: none;
-    padding: 0;
+    // padding: 10px;
     background-color: #F7F5DE;
+    cursor: pointer;
 `;
 
 const GrainButton = styled.button`
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     text-decoration: none;
     border: none;
-    padding: 0;
+    // padding: 0;
     background-color: #FDEDE7;
+    cursor: pointer;
 `;
 
 const ProteinButton = styled.button`
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     text-decoration: none;
     border: none;
-    padding: 0;
+    // padding: 0;
     background-color: #EAF5FB;
+    cursor: pointer;
 `;
 const FatsButton = styled.button`
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     text-decoration: none;
     border: none;
-    padding: 0;
+    // padding: 0;
     background-color: #EFEAFA;
+    cursor: pointer;
 `;
 const SugarsButton = styled.button`
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     text-decoration: none;
     border: none;
-    padding: 0;
+    // padding: 0;
     background-color: #FFEBF6;
+    cursor: pointer;
 `;
