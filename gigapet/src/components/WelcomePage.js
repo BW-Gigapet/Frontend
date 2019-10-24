@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { DefaultButton, GhostButton } from './FormButton';
+import OnBoardingFooter from './OnBoardingFooter';
 
 const WelcomePageContainer = styled.section`
   background: #f6f6f6;
@@ -54,7 +55,9 @@ console.log("Welcome page props", props)
             alt="animals"
           />
         </AnimalsImageContainer>  
+        <OnBoardingFooter />
       </WelcomePageContainer>
+      
     );
   }
   

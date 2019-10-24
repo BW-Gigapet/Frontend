@@ -56,6 +56,8 @@ const ChangeColumn = styled.td`
     font-size: 14px;
     line-height: 20px;
     font-weight: bold;
+    cursor: pointer;
+
 `;
 
 const DeleteColumn = styled.td`
@@ -63,4 +65,6 @@ const DeleteColumn = styled.td`
     font-size: 14px;
     line-height: 20px;
     font-weight: bold;
+    cursor: pointer;
+
 `;

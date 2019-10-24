@@ -22,4 +22,5 @@ const CategoryName = styled.h6`
     font-weight: normal;
     margin-top: 20px;
     text-align: left;
+    cursor: pointer;
 `;

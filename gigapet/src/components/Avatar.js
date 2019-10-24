@@ -38,6 +38,7 @@ const Container = styled.div`
 position: relative;
 overflow: hidden;
 // width:45%;
+margin-bottom: 35px;
 `
 
 const Backgorund = styled.img`
